@@ -4,7 +4,7 @@ import { Row, Col, Spinner } from "react-bootstrap";
 import API from "../api/axios.js";
 import { AuthContext } from "../context/AuthContext.jsx";
 import { toast } from "react-toastify";
-import "../styles/profile.css";
+import "../styles/Profile.css";
 import { API_URL } from "../../config.js";
 import ConsultationTab from "./ConsultationTab.jsx";
 import MembersTab from "./MembersTab.jsx";
