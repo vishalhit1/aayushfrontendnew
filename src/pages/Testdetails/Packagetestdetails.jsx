@@ -269,7 +269,7 @@ const Packagetestdetails = () => {
                     <div className="recenly-male-female">
                         <Row>
                             <Col lg={4} md={12} xs={6}>
-                                <h3><img src={booked} alt="" /> {pkg.recentlyBooked || "0"} booked recently</h3>
+                                <h3><img src={booked} alt="" /> {pkg.recentlyBooked || "500+"} booked recently</h3>
                             </Col>
                             <Col lg={4} md={12} xs={6}>
                                 {/* <h3><img src={male} alt="" /> For Male & female</h3> */}
