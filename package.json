@@ -14,7 +14,7 @@
     "@cashfreepayments/cashfree-js": "^1.0.5",
     "@react-oauth/google": "^0.12.2",
     "agora-react-uikit": "^1.2.0",
-    "agora-rtc-sdk-ng": "^4.24.0",
+    "agora-rtc-sdk-ng": "^4.23.0",
     "agora-rtm-react": "^1.1.2",
     "agora-rtm-sdk": "^2.2.2",
     "axios": "^1.12.2",
