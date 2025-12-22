@@ -1,0 +1,199 @@
+.profile-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.tab-item {
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background: #f4f4f4;
+  font-size: 14px;
+}
+
+.active-tab {
+  background: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
+
+.card.profile-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.profile-field {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.profile-field label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #333;
+}
+
+.profile-field input,
+.profile-field select {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.profile-field input:focus,
+.profile-field select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  outline: none;
+}
+
+.profile-field span {
+  padding: 10px 12px;
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.profile-actions button {
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.profile-actions .save-btn {
+  background: #007bff;
+  color: #fff;
+}
+
+.profile-actions .save-btn:hover {
+  background: #0056b3;
+}
+
+.profile-actions .cancel-btn {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.profile-actions .cancel-btn:hover {
+  background: #e2e2e2;
+}
+
+.btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background: #007bff;
+  color: #fff;
+}
+
+.btn-save {
+  background: #28a745;
+  color: #fff;
+}
+
+.btn-cancel {
+  background: #dc3545;
+  color: #fff;
+}
+
+/* Medical History / Allergies / Prescriptions Inputs */
+.card input[type="text"],
+.card input[type="date"],
+.card input[type="file"],
+.card textarea,
+.card select {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+.card button {
+  padding: 10px 15px;
+  background: #0891b2 !important;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Individual record display */
+/* .card p {
+margin: 0.3rem 0;
+} */
+
+/* Responsive */
+@media (max-width: 600px) {
+  .profile-tabs {
+    flex-direction: column;
+  }
+}
+
+/* consultation */
+.consultation-card {
+  border: 1px solid #eee;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.consultation-card p {
+  margin: 6px 0;
+}
+
+.consultation-card a {
+  color: #1e88e5;
+  text-decoration: underline;
+}
+
+.patient-chip {
+  background: #eef7ff;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 13px;
+  color: #0d6efd;
+  font-weight: 500;
+}
+
+.lab-booking-card {
+  border: 1px solid #eee;
+  background: #fff;
+}
+
+.lab-report-card {
+  transition: 0.2s ease;
+}
+
+.lab-report-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08) !important;
+}
+

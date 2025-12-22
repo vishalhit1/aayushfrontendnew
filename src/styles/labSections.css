@@ -1,0 +1,45 @@
+.lab-sections-wrapper {
+    background-color: #fafafa;
+  }
+  
+  .lab-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.2s ease;
+    background-color: #fff;
+    height: 100%;
+  }
+  
+  .lab-card:hover {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+  
+  .lab-card h5 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+
+
+
+  .lab-sections-wrapper {
+    background: #fafafa;
+    padding-bottom: 2rem;
+  }
+  
+  .lab-card {
+    border: 1px solid #e3e3e3;
+    border-radius: 10px;
+    padding: 16px;
+    background: white;
+    transition: all 0.2s ease;
+  }
+  
+  .lab-card:hover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+  
+  

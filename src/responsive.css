@@ -1,0 +1,1936 @@
+@media only screen and (max-width: 600px) {
+
+    html,
+    body {
+        overflow-x: hidden !important;
+        display: block;
+        width: 100%;
+    }
+
+    .health-catgeories-all .slick-slide>div {
+        padding: 0 5px;
+    }
+
+    .health-chec-categ-content h6 {
+        font-size: 18px;
+    }
+
+    .health-chec-categ-content img {
+        width: 70px;
+    }
+
+    .health-chec-categ-content {
+        padding: 20px 5px 0px 10px;
+    }
+
+    .popular-test-content h4 {
+        font-family: Onest;
+        margin-top: 15px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .popular-test-content p {
+        font-size: 12px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    .our-plan h6 {
+        left: 30%;
+        font-size: 18px;
+        width: 40%;
+    }
+
+    .our-plan button {
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+
+    .book-now-abcd1234 h4 span {
+        font-size: 16px;
+    }
+
+    .book-now-abcd1234 h4 {
+        font-size: 20px;
+    }
+
+    .our-plan1.mb-5 {
+        margin-bottom: 30px !important;
+    }
+
+    a.read-more-buttonss {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .view-less-more h5 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .stepper-to-choose p {
+        font-size: 12px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .stepper-to-choose {
+        padding-top: 15px;
+        padding-bottom: 20px;
+    }
+
+    .doc-cat-new-mobile {
+        margin-left: 15px;
+    }
+
+    .categories-all .col-lg-3 {
+        width: 25%;
+    }
+
+    .marquee-content p {
+        padding: 0 35px;
+        font-size: 14px;
+    }
+
+    .stepper-to-choose h4 {
+        left: 28%;
+        width: 45px;
+        font-size: 22px;
+        height: 45px;
+        top: -25px;
+    }
+
+    .categories-all img {
+        width: 100%;
+    }
+
+    .categories-all h4 {
+        line-height: 1.3;
+        font-size: 14px;
+    }
+
+    .footer-top {
+        background-color: #EDF8FA;
+        padding-top: 40px;
+        padding-bottom: 30px;
+    }
+
+    .foot-logo {
+        text-align: center;
+    }
+
+    .foot-logo p {
+        font-size: 16px;
+    }
+
+    .icons-socials {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .footer-accordion-section .accordion-icon {
+        font-size: 35px;
+    }
+
+    .accordion-header {
+        padding-bottom: 0px !important;
+    }
+
+    .heading-faqs {
+        font-size: 14px;
+        padding: 15px 15px;
+        justify-content: space-between;
+    }
+
+    .faqs-answer {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.75;
+        padding: 15px 16px;
+        text-align: left;
+    }
+
+    .faqs h3 {
+        font-size: 22px;
+    }
+
+    .accordion {
+        margin-top: 35px;
+    }
+
+    .packages-one .col-lg-2 {
+        width: 10%;
+    }
+
+    .packages-one .col-lg-3 {
+        width: 30%;
+    }
+
+    .packages-one .col-lg-7 {
+        width: 50%;
+    }
+
+    .packages-one h4 {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    .packages-one p {
+        font-size: 10px;
+    }
+
+    .packages-one h6 {
+        font-size: 12px;
+    }
+
+    .selling-packages h3 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .categories-all h3 {
+        font-size: 20px;
+    }
+
+    .packages-one {
+        position: relative;
+    }
+
+    button.read-more {
+        border-radius: 40px;
+        width: 100px;
+        height: 35px;
+        font-weight: 500;
+        font-size: 12px;
+        margin-top: -5px;
+    }
+
+    .sec-basic-infos .col-lg-4 {
+        width: 33.33333%;
+    }
+
+    section.home-banner {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .base-info img {
+        width: 70% !important;
+        padding: 11px;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        background: white;
+    }
+
+    .base-info h3 {
+        font-size: 12px;
+        margin-top: 20px;
+    }
+
+    .popular-test-new h3 {
+        font-size: 20px;
+    }
+
+    h3.age-test {
+        font-size: 20px;
+        padding: 25px 0px;
+    }
+
+    .age-test-new .col-lg-4 {
+        width: 33.33333%;
+    }
+
+    .age-test-new ul#uncontrolled-tab-example {
+        justify-content: space-between;
+    }
+
+    .age-content h4 {
+        font-size: 20px;
+        line-height: 1.3;
+        margin-bottom: 30px;
+        margin-top: 15px;
+    }
+
+    .age-test-new .nav-link {
+        width: 100% !important;
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .age-test-new li {
+        width: 50%;
+    }
+
+    h2.testimonial-heading {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .upcoming-list-appoin .col-9 {
+        padding-left: 0px;
+    }
+
+    .testimonial-heading::before {
+        left: -55px;
+    }
+
+    .testimonial-heading::before,
+    .testimonial-heading::after {
+        width: 95px;
+    }
+
+    .testimonial-heading::after {
+        right: -55px;
+    }
+
+    .bookus-img .col-sm-6 {
+        margin-bottom: 20px;
+        width: 50%;
+    }
+
+    .search-doctorsss.row .col-lg-6 {
+        width: 50%;
+    }
+
+    .section-header h2 {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    .bookwithus p {
+        font-size: 14px;
+    }
+
+    .bookwithus {
+        padding-bottom: 10px;
+    }
+
+    .test-detail-labs h4 {
+        font-size: 16px;
+    }
+
+    .h5-bg {
+        padding: 10px;
+    }
+
+    .h5-bg h5 {
+        font-size: 18px;
+    }
+
+    .search-for-doctors img {
+        width: 55px;
+    }
+
+    .search-for-doctors h6 {
+        font-size: 16px;
+        top: -20px;
+    }
+
+    .search-for-doctors {
+        height: 100px;
+    }
+
+    img.videoimgicon {
+        right: 37%;
+        left: 40%;
+        top: 35%;
+        width: 80px;
+    }
+
+    .testimonial-counter .col-lg-2 {
+        width: 50%;
+    }
+
+    .sec-basic-infos {
+        margin-top: 0px;
+        padding-top: 15px;
+        margin-bottom: 0px;
+    }
+
+    h6.display-61 {
+        font-size: 26px;
+    }
+
+    .testimonial-counter p {
+        font-size: 18px;
+    }
+
+    .testimonial-counter hr {
+        width: 85px;
+    }
+
+    .test-new .col-lg-6 {
+        width: 60%;
+    }
+
+    .test-new .col-lg-4 {
+        width: 40%;
+    }
+
+    .popular-health-new-content h6 {
+        font-size: 12px;
+    }
+
+    .test-new {
+        position: relative;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .test-new .row {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .popular-test-new .nav-tabs li {
+        width: 50%;
+    }
+
+    .popular-test-new .nav-tabs .nav-link {
+        font-size: 16px;
+        padding: 15px 0px;
+    }
+
+    .test-popularws.col-lg-6 {
+        width: 75%;
+    }
+
+    .text-end.col-lg-6.col-8 {
+        width: 25%;
+    }
+
+    .text-end.col-lg-6 a {
+        top: -4px;
+        font-size: 14px;
+    }
+
+    .doctor-consult h3 {
+        font-size: 20px;
+    }
+
+    .testimonails-section h3 {
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
+    .media-journey h3 {
+        font-size: 26px;
+        line-height: 1.5;
+    }
+
+    .our-blogs h3 {
+        font-size: 28px;
+        line-height: 1.5;
+    }
+
+    .test-new-img img {
+        width: 100%;
+    }
+
+
+    .test-new-img img {
+        width: 190px;
+        position: absolute;
+        left: 0;
+        top: -48px;
+    }
+
+    .test-new-content h4 {
+        font-size: 16px;
+        margin-bottom: 0px;
+    }
+
+    .test-new-content h5 {
+        font-size: 14px;
+    }
+
+    .test-new-content button {
+        width: 75%;
+        font-size: 14px;
+        padding: 10px 6px;
+    }
+
+    .blog-sliders h4 {
+        font-size: 16px;
+    }
+
+    .blog-sliders p {
+        font-size: 14px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+
+    .popular-test-new-sliders h4 {
+        font-size: 14px;
+    }
+
+    button.book-now {
+        background: #3D91DE;
+        width: 90%;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 100px;
+        font-weight: 500;
+        font-size: 14px;
+        text-transform: capitalize;
+        margin-left: auto;
+        display: block;
+        margin-right: auto;
+        border: 1px solid #AEC9C2;
+        margin-top: 15px;
+    }
+
+    h3.upcoming-appoiunt {
+        font-size: 20px;
+        margin-top: -5px;
+    }
+
+    .upcoming-content-list p {
+        font-size: 12px;
+    }
+
+    .upcoming-list-appoin {
+        padding: 20px 0px 20px 10px;
+    }
+
+    .upcoming-content-list h3 {
+        font-size: 18px;
+    }
+
+    button.join-button-new {
+        padding: 15px 10px 15px 10px;
+        font-size: 12px;
+    }
+
+    button.starts-butt {
+        padding: 15px 10px 15px 10px;
+        font-size: 12px;
+    }
+
+    .doc-sliders h4 {
+        padding: 5px 0px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 1.6;
+        text-align: center;
+        height: 50px;
+    }
+
+    .doc-sliders img {
+        height: 150px;
+    }
+
+    .based-slider-content {
+        padding: 40px 5px 40px 5px;
+    }
+
+    .based-test-sliders {
+        padding: 10px;
+    }
+
+    .based-slider-content h5 {
+        font-size: 12px;
+    }
+
+    .based-slider-content h4 {
+        font-size: 14px;
+        height: 40px;
+    }
+
+    button.test-book-now {
+        padding: 7px 22px;
+        font-size: 14px;
+    }
+
+    .based-test h3 {
+        font-size: 22px;
+    }
+
+    .based-test-sliders img {
+        top: -30px;
+        width: 65px;
+        padding: 8px;
+        height: 65px;
+        left: 34%;
+        z-index: 9999;
+    }
+
+    .based-test .slick-slider.mt-5.slick-initialized {
+        margin-top: 20px !important;
+    }
+
+    .style-1 del {
+        display: inline-block;
+    }
+
+    span.amount.amos {
+        padding-right: 10px;
+    }
+
+    span.amount {
+        font-size: 14px !important;
+    }
+
+    .second.col-lg-6 {
+        display: none;
+    }
+
+    .header-mains .container-fluid {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .top-header .row {
+        text-align: center;
+    }
+
+    .first a {
+        font-size: 14px;
+    }
+
+    .first .fa {
+        font-size: 14px;
+    }
+
+    .top-header {
+        background: #17A2B8;
+        margin-bottom: 0px;
+        padding: 15px;
+    }
+
+    .accordion-header h3 {
+        font-weight: 500;
+        font-size: 20px;
+    }
+
+    section.home-banner img {
+        height: 160px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .mobile-view {
+        display: block !important;
+    }
+
+    .health-card .price-section {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .health-card .current-price {
+        font-size: 20px;
+    }
+
+    img.test-images-1232122 {
+        width: 40px;
+        margin-bottom: 10px;
+    }
+
+    .health-card .original-price {
+        font-size: 14px;
+    }
+
+    .media-journey-section {
+        padding-top: 0px !important;
+    }
+
+    .fixed-footer {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        background: #ECFBFF;
+        right: 0px;
+        left: 0px;
+        box-shadow: 0px 0px 10px 0px #00000080;
+    }
+
+    .fixed-footer .col-lg-3 {
+        width: 25%;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .footer-menu .fa {
+        color: #17A2B8;
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+
+    .fixed-footer img {
+        width: 100%;
+    }
+
+    .footer-menu {
+        text-align: center;
+        padding: 13px 0px;
+    }
+
+    .footer-menu h3 {
+        margin-bottom: 0px;
+        font-weight: 700;
+        font-size: 13px;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .footer-menu a {
+        text-decoration: none;
+        color: #17A2B8;
+    }
+
+    .footer-menu.active {
+        color: #0891b2;
+        background: #0891b2;
+        border-radius: 2px;
+    }
+
+    .footer-menu.inactive {
+        opacity: 1;
+    }
+
+    .footer-menu.active .fa {
+        color: white;
+    }
+
+    .footer-menu.active a {
+        color: white;
+    }
+
+    .header-mains .container-fluid {
+        padding: 0px;
+    }
+
+    .searchnew-tabs .nav-tabs .nav-link {
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 14px;
+    }
+
+    .d-flex.d-lg-none.align-items-center.justify-content-between.w-100 {
+        box-shadow: 0px 4px 4px 0px #00000040;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .mobile-shadowss {
+        width: 100%;
+    }
+
+    .w-100.mt-3.d-lg-none {
+        padding: 5px 20px;
+    }
+
+    .mobile-veiw123 {
+        text-align: center;
+    }
+
+    .mobile-veiw123 h3 {
+        font-weight: 500;
+        font-size: 13px;
+        text-align: center;
+        margin-bottom: 0px;
+    }
+
+    .search-btn-wrapper-new {
+        border: 1px solid #17A2B8;
+        box-shadow: rgb(23, 162, 184) 0px 0px 4px 0px;
+        width: 100%;
+        margin-left: 30px;
+        border-radius: 35px;
+    }
+
+    .search-btn-wrapper-new button {
+        background: transparent;
+    }
+
+
+    .mobile-veiw123 img {
+        width: 20px;
+        margin-bottom: 5px;
+    }
+
+    button.search-btn img {
+        width: 35px;
+    }
+
+    .search-input {
+        width: 70%;
+    }
+
+    input {
+        outline: none !important;
+    }
+
+    input.search-input::placeholder {
+        color: #17A2B8;
+        font-weight: 600;
+    }
+
+    .selection-abcd {
+        padding: 25px 15px 40px 15px;
+    }
+
+    .category-card {
+        padding: 15px 25px !important;
+        font-size: 14px !important;
+    }
+
+    .selection-abcd h3 {
+        font-size: 22px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .container-fluid.px-5 {
+        padding: 0px 15px !important;
+    }
+
+    .card-img-hover img {
+        height: auto !important;
+    }
+
+    .doctor-header {
+        display: block !important;
+    }
+
+    img.doctor-image {
+        margin-bottom: 20px !important;
+    }
+
+    .page-container.doctor-details {
+        padding: 15px !important;
+    }
+
+    .mobile-login-btn {
+        width: 120px;
+        margin-bottom: 10px;
+    }
+
+    button.login-methods {
+        margin-top: 21px;
+    }
+
+    .mobile-menu-footer {
+        padding: 10px !important;
+        display: block !important;
+    }
+
+    button.mobile-signup-btn {
+        width: 120px;
+    }
+
+    button.continue-abcd {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .apply-new-coupons.cart-pages-aas.mb-4 .accordion {
+        margin-top: 20px;
+    }
+
+    .address-member-checkout {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .slot-member-checkout {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .address-member-checkout p {
+        font-size: 16px;
+    }
+
+    .slot-member-checkout p {
+        font-size: 16px;
+    }
+
+    button.go-backs {
+        padding: 10px 20px;
+        font-size: 18px;
+        width: 40%;
+    }
+
+    .form-group.no-float label {
+        font-size: 14px;
+    }
+
+    h5.select-type-abcds {
+        font-size: 14px;
+    }
+
+    button.video-audio-chat.selected {
+        font-size: 14px;
+        padding: 12px 40px;
+    }
+
+    button.video-audio-chat {
+        font-size: 14px;
+        padding: 12px 40px;
+    }
+
+    .booking-card .card-header {
+        padding: 20px;
+    }
+
+    .booking-card .card-header p {
+        margin-bottom: 0px;
+    }
+
+    .booking-card .amount-section {
+        padding: 15px;
+    }
+
+    .booking-card .amount-section .value {
+        font-size: 22px;
+    }
+
+    button.add-patie {
+        margin-right: auto;
+        font-size: 16px;
+        width: 90%;
+        padding: 15px 35px;
+    }
+
+    button.defaultbutton {
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+
+    .default-label {
+        margin-left: 20px;
+        position: relative;
+        display: block;
+        width: max-content;
+        margin-top: 20px;
+    }
+
+    button.editbutton {
+        padding: 10px 15px !important;
+        font-size: 14px !important;
+    }
+
+    button.removebutton {
+        padding: 10px 15px !important;
+        font-size: 14px !important;
+    }
+
+    .counter-lab-test .col-lg-4 {
+        width: 33.33333%;
+    }
+
+    .counter-lab-test {
+        padding: 40px 0px;
+        margin-top: 30px;
+    }
+
+    .counter13 h4 {
+        font-size: 20px;
+    }
+
+    .counter13 h6 {
+        margin-top: 10px;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .slot-end-new {
+        padding: 30px 15px 30px 15px !important;
+    }
+
+    h2.consult-a-doctors-now {
+        font-size: 22px;
+        padding-top: 0px;
+    }
+
+    a.spec-book-doctor {
+        width: 100% !important;
+        padding: 10px 10px !important;
+        font-size: 14px !important;
+    }
+
+    .spec-cons-fees .col-lg-5 {
+        width: 45%;
+    }
+
+    .spec-cons-fees .col-lg-7 {
+        width: 55%;
+    }
+
+    .special-div-basd .col-lg-8 {
+        width: 60%;
+    }
+
+    .special-div-basd .col-lg-4 {
+        width: 40%;
+    }
+
+    .doctor-info-detail h3 {
+        font-size: 18px !important;
+    }
+
+    a.doctor-abcds13 {
+        font-size: 13px !important;
+        margin-bottom: 10px !important;
+        margin-top: 5px !important;
+    }
+
+    .data_new-abcd p {
+        font-size: 14px !important;
+        margin-bottom: 8px;
+    }
+
+    .slot-button {
+        flex: auto !important;
+        width: 31%;
+        padding: 15px 0px !important;
+        border-radius: 6px;
+        transition: 0.2s;
+        justify-content: center;
+        display: flex;
+    }
+
+    select.select-abcds-appointement {
+        margin-bottom: 25px;
+        background-color: #46AAA0;
+        text-align: center;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        height: 55px;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .mobileserach.d-none {
+        display: block !important;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(34, 107, 118, 0.1) 53.37%, rgba(255, 255, 255, 0.1) 100%);
+    }
+
+    .category-list-all h3 {
+        font-size: 24px;
+        margin-bottom: 35px;
+        margin-top: 10px;
+    }
+
+    .cat-content {
+        padding-left: 15px;
+        margin-bottom: 20px;
+        padding-top: 10px;
+        padding-right: 15px;
+    }
+
+    .cat-content h6 {
+        font-size: 12px;
+        height: 35px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        line-height: 1.3;
+    }
+
+    .test-popularws h3 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .test-popularws.col-lg-6 h3 {
+        text-align: left;
+    }
+
+    .popular-test-new .slick-slide>div {
+        padding: 0 5px;
+    }
+
+    .aayush-new-packages .slick-slide>div {
+        padding: 0 5px;
+    }
+
+    .search-resul {
+        border-radius: 15px;
+        padding: 20px 15px;
+    }
+
+    .abcd-search-res h3 {
+        font-size: 14px;
+    }
+
+    .abcd-search-res h5 {
+        font-size: 12px;
+    }
+
+    .price-lab-testea p {
+        font-size: 18px;
+    }
+
+    p.discount-pricmes {
+        font-size: 16px;
+    }
+
+    .popular-health-new-content h4 {
+        font-size: 14px;
+        margin-top: 5px;
+        line-height: 1.5;
+    }
+
+    a.pop-test-read-more1 {
+        font-size: 11px;
+        margin-top: 0px;
+    }
+
+    a.percenatge-offerses {
+        font-size: 14px;
+    }
+
+    .labtest-indiv-test-detail {
+        align-items: center;
+    }
+
+    .popular-test-new-sliders p {
+        font-size: 12px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .selling-pack-sec {
+        padding-bottom: 15px;
+        margin-top: 20px;
+        padding-top: 30px;
+        margin-bottom: 30px !important;
+    }
+
+    .media-journey-sliders h4 {
+        bottom: 15px;
+        font-size: 15px;
+    }
+
+    .popular-test-content h5 {
+        font-size: 16px;
+        margin-right: 10px;
+    }
+
+    .button-latst-conte {
+        margin-top: 5px;
+    }
+
+    .text-end.col-lg-6 {
+        width: 25%;
+    }
+
+    .button-latst-conte button {
+        font-size: 12px;
+        padding: 10px 15px 10px 15px;
+    }
+
+    .popular-test-new-sliders121 {
+        margin-bottom: 5px;
+    }
+
+    .margin-disease-test {
+        margin-top: 10px;
+    }
+
+    a.pop-test-read-more {
+        margin-left: 5px;
+        font-weight: 500;
+        font-size: 12px;
+    }
+
+    .popular-test-content h6 {
+        font-size: 14px;
+    }
+
+    .image-section {
+        top: 65%;
+    }
+
+    .packages-one img {
+        margin: auto;
+        display: block;
+        position: absolute !important;
+        height: auto !important;
+        width: 85px !important;
+        left: 5px;
+        object-fit: contain;
+        top: auto !important;
+        border-radius: 15px;
+        bottom: 0px !important;
+    }
+
+    .test-popularws.mt-5.col-lg-12 {
+        margin-top: 5px !important;
+    }
+
+    .individual-package-sliders-lis .popular-test-new-sliders {
+        padding: 15px 0px;
+    }
+
+    button-latst-conte {
+        margin-top: 5px;
+    }
+
+    .steps-to-know-one {
+        padding: 5px 5px;
+    }
+
+    .steps-to-know-one h3 {
+        font-size: 16px;
+        margin-bottom: 5px;
+        margin-top: 10px;
+    }
+
+    .steps-to-know-one p {
+        font-size: 10px;
+    }
+
+    .seps-circle-one img {
+        width: 95%;
+    }
+
+    .recenly-male-female h3 img {
+        width: 20px;
+        margin-right: 3px;
+    }
+
+    .recenly-male-female h3 {
+        font-size: 14px;
+    }
+
+    .rupee-cart-both h4 span {
+        font-size: 18px;
+    }
+
+    .rupee-cart-both h4 {
+        font-size: 22px;
+    }
+
+    h6.basic-panantest {
+        font-size: 16px;
+    }
+
+    button.off-percent-price {
+        padding: 10px 0px 10px 0px;
+        font-size: 14px;
+        width: 45%;
+    }
+
+    .compare-other-plans h3 {
+        font-size: 20px;
+    }
+
+    .full-content-test-details p {
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+
+    .full-content-test-details ul {
+        padding-left: 10px;
+    }
+
+    .full-content-test-details ul li {
+        font-size: 12px;
+    }
+
+    .add-book-buttons .cart-sss {
+        padding: 12px 0px 12px 0px;
+        font-size: 18px;
+    }
+
+    .add-book-buttons .book-sss {
+        padding: 12px 0px 12px 0px;
+        font-size: 18px;
+    }
+
+    .test-detail-labs {
+        padding: 15px 15px 15px 15px;
+    }
+
+    a.view-more-abcds {
+        font-size: 14px;
+    }
+
+    h3.coupon-subtitle {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    button.apply-coupon-btn {
+        width: 100%;
+        padding: 10px 10px;
+        font-size: 16px;
+    }
+
+    .coupon-card {
+        margin-bottom: 0px;
+    }
+
+    input.custom-coupon-input {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .coupon-card span {
+        font-size: 14px;
+    }
+
+    .test-docvered {
+        padding: 20px 10px;
+    }
+
+    .test-docvered h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    ul.test-cobered-list-all li {
+        font-size: 14px;
+    }
+
+    button.view-more-all-test-list {
+        padding: 10px 5px 10px 5px;
+        width: 73%;
+        font-size: 12px;
+    }
+
+    .apply-new-coupons button.accordion-button {
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .full-test-details-overall button.accordion-button {
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    img.asasawqwqw {
+        margin-right: 10px;
+        width: 20px;
+    }
+
+    .sample-fast-repot {
+        padding: 10px 5px;
+    }
+
+    .sample-fast-repot img {
+        width: 35px;
+        margin-right: 10px;
+    }
+
+    .sample-content-test-labd h6 {
+        font-size: 12px;
+        margin-bottom: 0px;
+    }
+
+    .sample-content-test-labd h3 {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .fastin-ancds {
+        padding: 20px 10px;
+    }
+
+    .fast-repot img {
+        width: 40px;
+        height: 40px;
+        margin-right: 5px;
+    }
+
+    .content-test-labd h6 {
+        font-size: 12px;
+    }
+
+    .content-test-labd h3 {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .offcanvas-bottom-diabtes.offcanvas.offcanvas-bottom.show {
+        height: auto !important;
+    }
+
+    .mobile-row-center.row h2 {
+        font-size: 22px;
+    }
+
+    .doctor-info p span {
+        font-size: 16px;
+    }
+
+    .doctor-info p {
+        font-size: 16px;
+    }
+
+    .doctor-bio h3 {
+        font-size: 18px;
+    }
+
+    .doctor-bio {
+        padding: 30px 15px;
+    }
+
+    .doctor-info {
+        padding: 30px 15px;
+    }
+
+    button.off-percent-price12 {
+        padding: 10px 10px 10px 10px !important;
+        font-size: 16px !important;
+    }
+
+    .consul-fesas.col-lg-6.col-md-12.col-6 p {
+        font-size: 18px !important;
+    }
+
+    .consul-fesas p span {
+        font-size: 18px !important;
+    }
+
+    .consul-fesas h3 {
+        font-size: 16px !important;
+    }
+
+    .our-blogs .slick-slider .slick-track>div:first-child {
+        margin-left: 15px;
+    }
+
+    .media-journey-section .slick-track>div:first-child {
+        margin-left: 15px;
+    }
+
+    .mobile-css .slick-track>div:first-child {
+        margin-left: 18px;
+    }
+
+    .doctor-consult .slick-track>div:first-child {
+        margin-left: 15px;
+    }
+
+    .testi-sasxs .slick-track>div:first-child {
+        margin-left: 25px;
+    }
+
+    .mobile-slider-margin12 .slick-track>div:first-child {
+        margin-left: 15px;
+    }
+
+    .mobile-slider-margin .slick-track>div:first-child {
+        margin-left: 25px;
+    }
+
+    .mobile-slider-margin123 .slick-track>div:first-child {
+        margin-left: 15px;
+    }
+
+    .book-btn {
+        padding: 10px 25px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+
+    .card-title {
+        font-size: 16px;
+    }
+
+    .health-card h2 {
+        width: 160px;
+    }
+
+    .tests-info {
+        font-size: 14px;
+    }
+
+    .calll-to-acs {
+        margin-top: -10px;
+    }
+
+    .call-to-actions123 h3 span {
+        font-weight: 700 !important;
+    }
+
+    .call-to-actions123 h3 {
+        font-size: 12px;
+    }
+
+    .banner-new-labtest {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .foot-logo h4 {
+        text-align: left;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .cont-sece {
+        margin-top: 15px;
+    }
+
+    .cont-sece h4 {
+        font-size: 20px;
+    }
+
+    .three-test-labetss .row>* {
+        padding-right: 10px !important;
+        padding-left: 10px !important;
+    }
+
+    .aayush-holistic .row>* {
+        padding-right: 5px !important;
+        padding-left: 5px !important;
+    }
+
+    .three-test-labetss h4 {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+    .banner-new-labtest.mb-5 {
+        margin-bottom: 30px !important;
+    }
+
+    .most-boooked-health .popular-test-new {
+        padding-top: 0px;
+        padding-bottom: 20px;
+    }
+
+    .most-boooked-health h3 {
+        text-align: center;
+    }
+
+    .labtest-section-header h2 {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .labtest-steps-new h3 {
+        font-size: 14px;
+    }
+
+    .labtest-steps-new h6 {
+        font-size: 12px;
+    }
+
+    .aayush-holistic h3 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .ayush-hjos h6 {
+        font-size: 11px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+
+    .vacation-at-home-css .test-popularws h3 {
+        margin-bottom: 0px;
+        text-align: center;
+    }
+
+    .screentest-genetic h3 {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    .screentest-genetic .media-journey-sliders h4 {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .screentest-genetic {
+        padding-top: 30px;
+        padding-bottom: 35px;
+        margin-top: 5px;
+    }
+
+    .labtest-ibndivi-test-abcds-sliders {
+        padding: 10px 10px;
+        margin-bottom: 10px;
+    }
+
+    .labtest-ibndivi-test-abcds-sliders h4 {
+        height: 40px !important;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+    }
+
+    img.test-includes-new {
+        width: 16px;
+    }
+
+    img.book-recently-new {
+        width: 16px;
+    }
+
+    p.test-includes-lab-test {
+        font-size: 12px;
+    }
+
+    p.test-includes-lab-test123 {
+        font-size: 11px;
+    }
+
+    .lab-test-content-news h5 {
+        font-size: 16px;
+        margin-right: 10px;
+    }
+
+    .lab-test-content-news h6 {
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+
+    button.book-now-labtest-actions {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+    .testi-sasxs.labtest-testimonails .testimonail-card {
+        margin-bottom: 5px !important;
+    }
+
+    .testi-sasxs.labtest-testimonails {
+        padding-bottom: 10px !important;
+    }
+
+    .padd-checkout {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .trash-check-cart {
+        right: 0px;
+        top: -15px;
+        width: auto;
+        padding: 5px 10px;
+        font-size: 14px;
+        background: #FAFCFD;
+        height: auto;
+    }
+
+    button.done-button-labtest.btn.btn-primary {
+        padding: 10px 15px;
+        font-size: 16px;
+        width: 30%;
+    }
+
+    button.pateinty-add-update.btn.btn-primary {
+        display: block;
+        margin-left: auto;
+        width: 65%;
+        font-weight: 700;
+        font-size: 16px;
+        text-transform: capitalize;
+        padding: 10px 0px;
+        border-radius: 5px;
+        background: #46AAA0;
+        border: solid 1px #46AAA0;
+        color: white;
+    }
+
+    button.continue-abcd {
+        display: initial !important;
+        margin-left: initial !important;
+        width: 60%;
+        font-size: 18px;
+    }
+
+    .action-buttons.mt-5 {
+        justify-content: center;
+    }
+
+    .select-pateint-div-new.d-flex i.fas.fa-edit {
+        margin-left: 5px;
+        margin-right: 5px;
+        font-size: 22px;
+    }
+
+    .fade.cart-modal-new-css.modal.show img.select-patient-labsessd {
+        width: 35px;
+    }
+
+    .fade.cart-modal-new-css.modal.show .h4 {
+        font-size: 22px;
+    }
+
+    button.addpatient-button-labtest.btn.btn-primary {
+        display: block;
+        margin-left: auto;
+        width: 65%;
+        font-weight: 700;
+        font-size: 16px;
+        text-transform: capitalize;
+        padding: 10px 0px;
+        border-radius: 5px;
+        background: #46AAA0;
+        border: solid 1px #46AAA0;
+        color: white;
+    }
+
+    .d-flex.align-items-center.padd-checkout {
+        padding-top: 15px;
+    }
+
+    .name-paln-check {
+        margin-left: 15px;
+        padding-left: 0px;
+        padding-right: 10px;
+        width: 54%;
+    }
+
+    .name-paln-check h6 {
+        font-size: 18px;
+    }
+
+    h4.choose-or-abcdsaas {
+        font-size: 18px;
+    }
+
+    button.apply-coupon-btn-new {
+        padding: 5px 25px;
+        border-radius: 7px;
+    }
+
+    .apply-new-coupons.cart-pages-aas.mb-4 .accordion-body {
+        padding: 25px 10px;
+    }
+
+    .d-block.name-paln-check h5 {
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    h3.trotal-jnsj {
+        margin-bottom: 0px !important;
+    }
+
+    img.img-ajbjbn {
+        width: 75px !important;
+    }
+
+    p.check-price-out span {
+        font-size: 16px;
+    }
+
+    p.check-price-out {
+        font-size: 20px;
+    }
+
+    .total-letst-lshn {
+        margin-bottom: 0px;
+        margin-top: 25px;
+    }
+
+    button.select-patient-checkoutsas {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .assign-member-checkout {
+        margin-bottom: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .assign-member-checkout h4 {
+        font-size: 18px !important;
+    }
+
+    .col-lg-12.no-cart-needed {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .when-no-cart img {
+        width: 150px;
+    }
+
+    .value-add-ons {
+        padding: 20px 10px;
+    }
+
+    .first-blocks h3 {
+        font-size: 20px;
+    }
+
+    .first-blocks p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .sec-blocks p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .sec-blocks h3 {
+        margin-bottom: 0px;
+        font-size: 20px;
+    }
+
+    .assign-member-checkout .d-flex.gap-2 {
+        display: block !important;
+        margin-top: 15px;
+    }
+
+    .d-flex.align-items-center.pat-list-check {
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    button.proceed-to-checkout {
+        font-size: 16px;
+    }
+
+    .bill-summary h5 {
+        font-size: 16px;
+    }
+
+    .bill-summary span {
+        font-size: 14px;
+    }
+
+    .bill-summary h6 {
+        font-size: 18px;
+    }
+
+    .total-amount-to-pay h2 {
+        font-size: 20px;
+    }
+
+    .total-amount-to-pay h3 {
+        font-size: 22px;
+    }
+
+    .fast-repot {
+        padding: 15px 5px;
+    }
+
+    .content-test-labd {
+        margin-left: 3px;
+        margin-top: 5px;
+    }
+
+    .coupons-labtest-edetails .coupon-desc {
+        font-size: 14px !important;
+    }
+
+    .coupons-labtest-edetails .custom-coupon .coupon-code {
+        font-size: 16px !important;
+    }
+
+    .no-patient-records img {
+        width: 150px;
+    }
+
+    .no-patient-records h3 {
+        font-size: 22px;
+    }
+
+    .offcanvas-bottom-diabtes.offcanvas.offcanvas-bottom.show .bookwithus {
+        padding-bottom: 0px;
+        padding-top: 25px !important;
+    }
+
+    a.go-to-cart-news {
+        font-size: 16px;
+    }
+
+    .numbers-abcd h3 {
+        font-size: 16px;
+    }
+
+    .numbers-abcd h6 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 991px) {
+    .main-header {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+        padding-top: 80px;
+    }
+
+    .offcanvas-menu {
+        top: 0 !important;
+    }
+
+    .offcanvas-overlay {
+        top: 0 !important;
+    }
+
+    .videosection-testimonials .slick-slide>div {
+        padding: 0 5px;
+    }
+
+    .videosection-testimonials .slick-track>div:first-child {
+        margin-left: 20px;
+    }
+
+    .book-together-slidersasas .slick-track>div:first-child {
+        margin-left: 15px;
+    }
+
+    .book-together-slidersasas .slick-slide>div {
+        padding: 0 5px;
+    }
+
+    img.gi-f-images {
+        bottom: 80px;
+        left: 60px;
+        width: 50px;
+        height: 50px;
+        right: 20px;
+    }
+
+    .testimonail-card .card-body {
+        padding: 15px 5px;
+    }
+
+    .mobile-menu-toggle {
+        margin-left: 0px;
+        z-index: 10000;
+    }
+
+    .most-book-view-all {
+        margin-top: 20px;
+        padding: 8px 50px;
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+    .based-test {
+        padding-bottom: 40px;
+    }
+}

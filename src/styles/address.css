@@ -1,0 +1,141 @@
+.continue-btn {
+    width: 100%;
+    padding: 12px;
+    background: #ff6b61;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.add-new {
+    color: #ff6b61;
+    cursor: pointer;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.address-list {
+    margin-top: 10px;
+}
+
+button.editbutton .fa {
+    margin-right: 8px;
+}
+
+button.removebutton .fa {
+    margin-right: 8px;
+}
+
+button.pat-edit .fa {
+    margin-right: 8px;
+}
+
+button.pat-delete .fa {
+    margin-right: 8px;
+}
+
+.address-card {
+    border: 1px solid #969AA4;
+    border-radius: 6px;
+    background-color: white;
+    padding: 25px 15px 25px 15px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.address-actions {
+    margin-top: 20px;
+}
+
+.address-card.selected {
+    border: 1px solid #46AAA0;
+}
+
+.address-label {
+    display: flex;
+    align-items: flex-start;
+    flex: 1;
+    cursor: pointer;
+}
+
+.address-label input[type="radio"] {
+    margin-right: 10px;
+    cursor: pointer;
+    position: relative;
+    width: 18px;
+    height: 18px;
+    top: 8px;
+}
+
+.address-info h6 {
+    text-transform: capitalize;
+    margin-top: 7px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.address-info p {
+    margin: 2px 0;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.default-label {
+    background: #46AAA0;
+    border-color: #E6E8EE;
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 5px;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    margin-right: 20px;
+    text-transform: capitalize;
+}
+
+button.editbutton {
+    background: #46AAA0;
+    border-color: #E6E8EE;
+    color: #ffffff;
+    padding: 10px 22px;
+    border-radius: 5px;
+    border: none;
+    font-weight: 500;
+    font-size: 16px;
+    margin-right: 20px;
+    margin-left: 20px;
+    text-transform: capitalize;
+}
+
+button.removebutton {
+    background: white;
+    color: #DC3545;
+    border: #DC3545 solid 1px;
+    padding: 10px 22px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    margin-right: 20px;
+    text-transform: capitalize;
+}
+
+button.defaultbutton {
+    background: #EDF7F8;
+    border-color: #E6E8EE;
+    color: #46AAA0;
+    padding: 10px 22px;
+    border: 1px solid #46AAA0;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    margin-right: 20px;
+    text-transform: capitalize;
+}

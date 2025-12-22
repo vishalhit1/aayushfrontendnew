@@ -1,0 +1,327 @@
+/* ============================================
+   PAGE HEADER
+   ============================================ */
+   .my-bookings-page h2 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    color: #1A1A1A;
+    line-height: 1.2;
+  }
+  
+  /* ============================================
+       TABS SECTION
+       ============================================ */
+  .booking-tabs {
+    border: none;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+  }
+  
+  .booking-tabs button {
+    color: black !important;
+    width: 25%;
+    border-radius: 0px !important;
+    padding: 15px;
+    border: solid #46AAA0 2px !important;
+    font-family: Onest;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.6;
+    background: white;
+  }
+  
+  .booking-tabs button.active {
+    background: #46AAA0;
+    border: solid #46AAA0 2px !important;
+    color: white !important;
+  }
+  
+  .booking-content {
+    margin-top: 50px;
+  }
+  
+  /* ============================================
+       BOOKING CARDS - STANDARD
+       ============================================ */
+  .booking-card {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    padding: 22px 28px;
+    margin-bottom: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  /* ============================================
+       BOOKING HEADER
+       ============================================ */
+  .booking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  /* ============================================
+       BOOKING OVERVIEW
+       ============================================ */
+  .booking-overview p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .booking-overview strong {
+    color: #444;
+    font-weight: 600;
+  }
+  
+  /* ============================================
+       STATUS BADGES
+       ============================================ */
+  .status-badge {
+    padding: 6px 12px;
+    border-radius: 14px;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    display: inline-block;
+    min-width: 130px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    user-select: none;
+  }
+  
+  .status-badge-lab {
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    display: inline-block;
+    min-width: 130px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* ============================================
+       ACTION BUTTONS
+       ============================================ */
+  .booking-actions {
+    display: flex;
+    margin-top: 15px;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  
+  .booking-actions button {
+    color: white !important;
+    flex: 1 1 auto;
+    min-width: 120px;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  }
+  
+  /* View Details Button - Primary */
+  .view-details-btn {
+    background-color: #46aaa0 !important;
+    color: white !important;
+    border: 1px solid #46aaa0 !important;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* Reorder Button - Success */
+  .reorder-btn {
+    background-color: #28A745;
+    color: white !important;
+    border: 1px solid #28A745;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* Pay Button - Teal */
+  .pay-btn {
+    background-color: #17A2B8;
+    color: white !important;
+    border: 1px solid #17A2B8;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* Cancel Button - Danger */
+  .cancel-btn-booking {
+    background-color: #FFF3F2;
+    border: 1px solid #17A2B8;
+    color: #FF3E2D !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Join Consultation Button - Teal */
+  .join-consultation-btn {
+    background-color: #17A2B8 !important;
+    color: white !important;
+    border: 1px solid #17A2B8 !important;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* ============================================
+       LAB BOOKING CARDS
+       ============================================ */
+  .lab-booking-card {
+    background-color: #FFFFFF;
+    border-radius: 14px;
+    padding: 16px;
+    border: 1px solid #EEE;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  
+  /* ============================================
+       LAB CARD HEADER
+       ============================================ */
+  .lab-card-header h6 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+    color: #1A1A1A;
+  }
+  
+  /* ============================================
+       LAB TESTS SECTION
+       ============================================ */
+  .labtest-section h6 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 10px;
+  }
+  
+  .test-item {
+    background-color: #F9FAFC;
+    border: 1px solid #E6EBF5;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* ============================================
+       PATIENT CHIP
+       ============================================ */
+  .patient-chip {
+    display: inline-block;
+    background-color: #EAF4FF;
+    padding: 5px 8px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #0A66C2;
+    font-weight: 600;
+  }
+  
+  /* ============================================
+       SLOT INFO HIGHLIGHT
+       ============================================ */
+  .slot-info {
+    background-color: #FFF6E5;
+    padding: 8px 12px;
+    border-left: 4px solid #FF9F00;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  /* ============================================
+       RESPONSIVE DESIGN
+       ============================================ */
+  @media (max-width: 768px) {
+    .booking-tabs button {
+      width: 45%;
+      font-size: 0.9rem;
+      padding: 12px;
+    }
+  
+    .booking-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .my-bookings-page h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+  
+    .booking-tabs {
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+  
+    .booking-tabs button {
+      width: 100%;
+      padding: 12px;
+      font-size: 0.9rem;
+    }
+  
+    .booking-card {
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+  
+    .booking-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  
+    .booking-actions {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .booking-actions button {
+      width: 100%;
+      min-width: 100%;
+    }
+  }
+  
+  h4.booking-section-title {
+    background: linear-gradient(90deg, #1F545D 0%, #46AAA0 60%);
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  
+  
+  h2.my-booking0-klist-new {
+    background: linear-gradient(90deg, #1f545d, #46AAA0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-top: 35px;
+    padding-bottom: 10px;
+  }

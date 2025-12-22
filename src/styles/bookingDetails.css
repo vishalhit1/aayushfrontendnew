@@ -1,0 +1,345 @@
+.page-container.booking-details-pages-new {
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+.booking-details-pages-new h2 {
+    background: linear-gradient(90deg, #1f545d, #17a2b8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.booking-details-pages-new .booking-card {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 0.07);
+}
+
+.booking-details-pages-new .booking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    color: #555;
+    font-weight: 600;
+}
+
+.booking-details-pages-new .status-badge {
+    color: white;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+}
+
+.booking-details-pages-new .booking-item {
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+    color: #444;
+}
+
+.booking-details-pages-new .booking-item p {
+    margin: 6px 0;
+    text-transform: capitalize;
+}
+
+.booking-card p {
+    text-transform: capitalize;
+}
+
+.booking-details-pages-new h4 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-left: 4px solid #1197ce;
+    padding-left: 12px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #1f545d, #17a2b8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.booking-details-pages-new .booking-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+    justify-content: flex-end;
+}
+
+.booking-details-pages-new button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.booking-details-pages-new .reorder-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.booking-details-pages-new .reorder-btn:hover {
+    background-color: #218838;
+}
+
+.booking-details-pages-new .cancel-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.booking-details-pages-new .cancel-btn:disabled {
+    background-color: #e6a1a8;
+    cursor: not-allowed;
+}
+
+.booking-details-pages-new .cancel-btn:hover:not(:disabled) {
+    background-color: #c82333;
+}
+
+.booking-details-pages-new .track-payment-btn {
+    background-color: #2d7dff;
+    color: white;
+}
+
+.booking-details-pages-new .track-payment-btn:hover {
+    background-color: #1a5de8;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .page-container.booking-details-pages-new {
+        margin: 20px 15px;
+        padding: 15px;
+    }
+
+    .booking-details-pages-new .booking-card {
+        padding: 20px;
+    }
+
+    .booking-details-pages-new button {
+        width: 100%;
+        padding: 12px 0;
+    }
+
+    .booking-details-pages-new .booking-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.lab-border {
+    background: #f8f9ff;
+    border: 1px solid #e4e8ff;
+    border-radius: 18px;
+}
+
+/* ---- Tests Section ---- */
+.section-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #4a4a4a;
+}
+
+/* Main test block */
+.test-block {
+    background: #ffffff;
+    padding: 18px;
+    border-radius: 18px;
+    border: 1px solid #e5e7eb;
+    transition: 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.test-block:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* Text styling */
+.test-block h6 {
+    font-size: 17px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.test-block p {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+/* Patients section */
+.patient-list strong {
+    font-size: 14px;
+    color: #3b82f6;
+}
+
+/* Single patient card */
+.patient-card {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 10px 14px;
+    transition: 0.2s ease-in-out;
+}
+
+.patient-card:hover {
+    background: #f3f4f6;
+    border-color: #cbd5e1;
+}
+
+/* Inside patient item */
+.patient-card span {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.patient-card small {
+    font-size: 12px;
+    color: #6b7280 !important;
+}
+
+.order-meta {
+    background: #f8f9ff;
+    border: 1px solid #e4e8ff;
+    border-radius: 16px;
+    padding: 18px 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.order-meta p {
+    margin: 8px 0;
+    font-size: 15px;
+    color: #374151;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-meta strong {
+    color: #4f46e5;
+    /* Indigo tone like Tata 1mg */
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+.order-meta p:last-child {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.order-meta p:last-child strong {
+    color: #1e40af;
+    /* Slightly deeper tone */
+}
+
+
+
+.reports-wrapper {
+    background: #f8f9ff;
+    border: 1px solid #e4e8ff;
+    border-radius: 18px;
+}
+
+.report-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 14px 18px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease-in-out;
+}
+
+.report-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.report-card .left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.pdf-icon {
+    width: 45px;
+    height: 45px;
+    background: #ffe9ea;
+    color: #d62828;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.report-info h6 {
+    font-size: 16px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.date-text {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.report-card .right {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-btn {
+    width: 36px;
+    height: 36px;
+    background: #eef2ff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4256ff;
+    font-size: 16px;
+    transition: 0.2s ease;
+    text-decoration: none;
+}
+
+.icon-btn.view:hover {
+    background: #4256ff;
+    color: white;
+}
+
+.icon-btn.download:hover {
+    background: #34a853;
+    color: white;
+}
+
+.report-card {
+    transition: all 0.2s ease;
+    background: #fff;
+  }
+  
+  .report-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  }
+  

@@ -1,0 +1,172 @@
+.tests-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .test-card {
+    flex: 1 1 240px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+  }
+  
+  .test-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  .test-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .badge {
+    position: absolute;
+    top: 5px;
+    border-radius: 10px !important;
+    right: 5px;
+    background: #ff6f61;
+    color: #fff;
+    padding: 7px 15px !important;
+    top: 0px !important;
+    right: 20px !important;
+    font-size: 0.75rem;
+  }
+  
+  .test-info h3.clickable-name {
+    color: #1a73e8;
+    cursor: pointer;
+  }
+  
+  .test-info p {
+    margin: 3px 0;
+  }
+  
+  .test-card button {
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-top: 8px;
+    width: 100%;
+  }
+  
+  .test-card button:hover {
+    background: #0c5ac6;
+  }
+  
+  /* Sticky Cart */
+  .sticky-cart {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 15px 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .sticky-cart button {
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-top: 8px;
+    width: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    .tests-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .sticky-cart {
+      width: 90%;
+      right: 5%;
+      bottom: 15px;
+    }
+  }
+
+
+  .lab-detail-card {
+    max-width: 600px;
+    margin: 30px auto;
+    background: #fff;
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  }
+  
+  .lab-detail-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .lab-detail-card h2 {
+    color: #1a73e8;
+    margin-bottom: 10px;
+  }
+  
+  .lab-detail-card p {
+    margin-bottom: 10px;
+  }
+  
+  .lab-detail-card .description {
+    font-size: 0.95rem;
+    color: #555;
+    margin-top: 15px;
+  }
+  
+  .lab-detail-card button {
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+    width: 100%;
+    font-weight: 500;
+  }
+  
+  .lab-detail-card button:hover {
+    background: #0c5ac6;
+  }
+  
+  
+
+  button.w-100.add-to-cartser {
+    padding: 10px 15px;
+    margin-right: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #1f545d, #17a2b8);
+    color: white;
+}
+
+button.w-100.remove-cartss {
+  padding: 10px 15px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #dc3545;
+  color: white;
+}

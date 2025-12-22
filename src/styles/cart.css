@@ -1,0 +1,26 @@
+h5.labb-tesst {
+    color: #17a2b8 !important;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 0px;
+}
+
+.new-cart-new {
+    padding: 15px;
+    background: #F9FBFF !important;
+}
+
+h5.labb-tesst span {
+    top: 13px !important;
+    background: #17a2b8 !important;
+}
+
+.list-new-abcds-new {
+    padding: 20px;
+}
+
+.pricinging {
+    margin-top: 10px;
+}

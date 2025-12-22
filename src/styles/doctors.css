@@ -1,0 +1,299 @@
+.filters {
+    border: 1px solid #E6E8EE;
+    box-shadow: 0px 4px 14px 0px rgba(226, 237, 255, 0.25);
+    margin-bottom: 24px;
+    color: inherit;
+    border-radius: 10px;
+}
+
+.filter-head {
+    background: #F9FBFF;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+}
+
+.filter-head h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+.filter-content {
+    padding: 15px;
+}
+
+.filter-content .form-control {
+    border: 1px solid #969AA4;
+    height: 50px;
+    margin-bottom: 20px;
+    -webkit-appearance: auto !important;
+}
+
+.filter-content label {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.filter-content input[type="range"] {
+    width: 100%;
+    height: 6px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #17a2b8 0%, #17a2b8 0%, #E6E8EE 0%, #E6E8EE 100%);
+    outline: none;
+    margin-bottom: 10px;
+    -webkit-appearance: none;
+}
+
+.filter-content input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #17a2b8;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.filter-content input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #17a2b8;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.filter-content input[type="range"]::-moz-range-track {
+    height: 6px;
+    border-radius: 5px;
+    background: #E6E8EE;
+}
+
+.filter-content input[type="range"]::-moz-range-progress {
+    height: 6px;
+    border-radius: 5px;
+    background: #17a2b8;
+}
+
+.filter-content input[type="range"]::-webkit-slider-thumb:hover {
+    background: #1f545d;
+}
+
+.filter-content input[type="range"]::-moz-range-thumb:hover {
+    background: #1f545d;
+}
+
+.filter-content span {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #012047;
+    margin-bottom: 20px;
+}
+
+.no-results-message {
+    background: #fff;
+    cursor: pointer;
+    border: 3px solid #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px #00000040;
+}
+
+.no-results-message h4 {
+    font-size: 20px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.form-data-abcd {
+    border: 1px solid #E6E8EE;
+    box-shadow: 0px 7.5px 17.5px 0px rgba(0, 0, 0, 0.0509803922);
+    border-radius: 10px;
+    margin-bottom: 24px;
+    padding: 25px 20px 25px 20px;
+}
+
+
+.form-data-abcd .form-control {
+    border: 1px solid #969AA4;
+    height: 55px;
+    margin-bottom: 20px;
+}
+
+.form-data-abcd label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+button.update-prifle-buttons {
+    background: #0891b2;
+    color: #ffffff;
+    padding: 15px 40px;
+    margin-top: 5px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 18px;
+    text-transform: capitalize;
+    box-shadow: 0 4px 4px #00000040;
+    border: 1px solid #AEC9C2;
+}
+
+table.table.table-bordered.table-hover td {
+    text-align: center;
+}
+
+table.table.table-bordered.table-hover th {
+    padding: 15px;
+    text-align: center;
+}
+
+button.generate-slotss {
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: capitalize;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #17A2B8;
+    padding: 15px 60px;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(174, 201, 194);
+    border-image: initial;
+}
+
+button.request-payoutds {
+    background: #0891b2;
+    color: #ffffff;
+    padding: 15px 40px;
+    margin-top: 5px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 18px;
+    text-transform: capitalize;
+    box-shadow: 0 4px 4px #00000040;
+    border: 1px solid #AEC9C2;
+}
+
+.spec-cons-fees {
+    background: #46AAA0;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+img.profile-sepc-doctors {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid #46AAA0;
+    border-bottom: none;
+    border-left: none;
+    border-top: none;
+}
+
+a.spec-book-doctor {
+    width: auto;
+    border-radius: 100px;
+    text-align: center;
+    cursor: pointer;
+    background: white;
+    padding: 10px 15px;
+    font-family: Onest;
+    font-weight: 600;
+    color: #46AAA0;
+    margin: auto;
+    font-size: 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.spec-cons-fees p {
+    font-family: Onest;
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: white;
+}
+
+h3.doc-fees {
+    font-weight: 500;
+    font-size: 22px;
+    color: white;
+}
+
+.doctor-info-detail h3 {
+    font-family: Onest;
+    font-weight: 600;
+    font-size: 22px;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+.data_new-abcd p {
+    font-family: Onest;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+a.doctor-abcds13 {
+    color: #46AAA0;
+    font-family: Onest;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+h4.doc-fees-disc {
+    font-weight: 400;
+    padding-left: 10px;
+    font-size: 18px;
+    text-decoration: line-through;
+    color: white;
+}
+
+.spec-cons-fees .row {
+    align-items: center;
+}
+
+.special-price-doc {
+    display: flex;
+    align-items: center;
+}
+
+.special-div-basd {
+    border: 1px solid #46AAA0;
+    border-style: dashed;
+    cursor: pointer;
+}
+
+.special-div-basd .row {
+    align-items: center;
+}
+
+hr.doctor-detiles-hr {
+    opacity: 1;
+    border-style: dashed;
+    border: dashed black 1px !important;
+    background-color: transparent !important;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}    
+
+.doctor-details-news12 .popular-test-new12 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
