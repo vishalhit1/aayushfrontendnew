@@ -48,7 +48,7 @@ const DoctorConsult = () => {
     useEffect(() => {
         const fetchLabTests = async () => {
             try {
-                const res = await API.get("/api/labtests"); // GET /api/lab-tests
+                const res = await API.get("/api/labtests/getActiveLabTests"); // GET /api/lab-tests
                 setLabTests(res.data.tests || []);
                 // Popular tests - top 3 cheapest or based on a "popular" flag
                 setPopularTests(res.data.tests?.slice(0, 3) || []);

@@ -43,7 +43,7 @@ const PopularTest = () => {
     useEffect(() => {
         const fetchLabTests = async () => {
             try {
-                const res = await API.get("/api/labtests");
+                const res = await API.get("/api/labtests/getActiveLabTests");
                 console.log("API response data:", res.data);
                 setLabTests(res.data.tests.slice(0, 8));
             } catch (error) {
@@ -218,7 +218,7 @@ const PopularTest = () => {
                                             onClick={() => window.location.href = `/individualtestdetails/${test._id}`} className="labtest-ibndivi-test-abcds">
                                             <div className="labtest-ibndivi-test-abcds-sliders">
                                                 <h4>{test.name}</h4>
-                                                <p className="test-includes-lab-test">
+                                                {/* <p className="test-includes-lab-test">
                                                     {test?.includedTests?.length > 0 ? (
                                                         <>
                                                             <img className="test-includes-new" src={testincluded} alt="" />
@@ -230,6 +230,11 @@ const PopularTest = () => {
                                                             Single Test Included
                                                         </>
                                                     )}
+                                                </p> */}
+                                                <p className="test-includes-lab-test">
+                                                    {test.nooftest && test.nooftest > 0
+                                                        ? `${test.nooftest} Test${test.nooftest > 1 ? 's' : ''} Included`
+                                                        : '0 Test Included'}
                                                 </p>
                                                 <p className="test-includes-lab-test123">
                                                     <img

@@ -166,7 +166,7 @@ const LabTests = () => {
 
   const fetchTests = async () => {
     try {
-      const res = await API.get("/api/labtests");
+      const res = await API.get("/api/labtests/getActiveLabTests");
       setTests(res.data.tests);
     } catch (err) {
       console.error(err);

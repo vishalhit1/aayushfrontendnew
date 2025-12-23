@@ -205,12 +205,16 @@ const BasedTests = () => {
                                     <div className='based-slider-content'>
                                         <h4>{test.name}</h4>
 
-                                        <h5>
+                                        {/* <h5>
                                             {test.includedTests?.length > 0
                                                 ? `${test.includedTests.length} Tests Included`
                                                 : "Single Test"}
+                                        </h5> */}
+                                        <h5>
+                                            {test.nooftest && test.nooftest > 0
+                                                ? `${test.nooftest} Test${test.nooftest > 1 ? 's' : ''} Included`
+                                                : '0 Test Included'}
                                         </h5>
-
                                         <div className="style-1">
                                             <ins>
                                                 <span className="amount amos">₹ {test.price}/-</span>

@@ -47,7 +47,7 @@ const Individualtestlist = () => {
 
   const fetchTests = async () => {
     try {
-      const res = await API.get("/api/labtests");
+      const res = await API.get("/api/labtests/getActiveLabTests");
       setTests(res.data.tests);
     } catch (err) {
       console.error(err);
@@ -178,7 +178,7 @@ const Individualtestlist = () => {
                 <div className="labtest-ibndivi-test-abcds-sliders">
                   <h4>{test.name}</h4>
                   {/* <p>{test.description?.slice(0, 40) || "Test details"}...</p> */}
-                  <p className="test-includes-lab-test">
+                  {/* <p className="test-includes-lab-test">
                     {test?.includedTests?.length > 0 ? (
                       <>
                         <img className="test-includes-new" src={testincluded} alt="" />
@@ -190,6 +190,11 @@ const Individualtestlist = () => {
                         Single Test Included
                       </>
                     )}
+                  </p> */}
+                  <p className="test-includes-lab-test">
+                    {test.nooftest && test.nooftest > 0
+                      ? `${test.nooftest} Test${test.nooftest > 1 ? 's' : ''} Included`
+                      : '0 Test Included'}
                   </p>
                   <p className="test-includes-lab-test123">
                     <img

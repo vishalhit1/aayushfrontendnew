@@ -322,7 +322,8 @@ const Packagetestdetails = () => {
                                     <img src={repo3} alt="" />
                                     <div className="content-test-labd">
                                         <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>Total Tests <span><i className="fa fa-angle-right"></i></span></h3>
-                                        <h6>{pkg.tests ? pkg.tests.length : 0} Tests</h6>
+                                        <h6>{pkg?.nooftest} Tests</h6>
+                                        {/* <h6>{pkg.tests ? pkg.tests.length : 0} Tests</h6> */}
                                     </div>
                                 </div>
                             </Col>

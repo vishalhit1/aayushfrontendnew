@@ -177,7 +177,8 @@ const Ourpackages = () => {
                                     onClick={() => window.location.href = `/packagetestdetails/${pkg._id}`} className={`popular-test-new-sliders121 ${getClassName(index)}`}>
                                     <div className='popular-test-content'>
                                         <h4>{pkg.name} ({pkg.tier})</h4>
-                                        <p>{pkg.tests?.length || 0}+ Tests Included</p>
+                                        {/* <p>{pkg.tests?.length || 0}+ Tests Included</p> */}
+                                        <p>{pkg.nooftest?.length || 0}+ Tests Included</p>
                                         <div className="price-lab-test">
                                             <h5>₹ {pkg.price}/-</h5>
                                             <h6 style={{ textDecoration: 'line-through' }}>₹ {pkg.actualPrice}/-</h6>

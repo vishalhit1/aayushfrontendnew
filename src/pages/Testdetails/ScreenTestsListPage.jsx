@@ -110,14 +110,16 @@ const ScreenTestsListPage = () => {
                     <div className="labtest-ibndivi-test-abcds-sliders">
                       <h4>{test.name}</h4>
 
-                      <p className="test-includes-lab-test">
+                      {/* <p className="test-includes-lab-test">
                         <img
                           className="test-includes-new"
                           src={testincluded}
                           alt=""
                         />
                         {test?.includedTests?.length || 1} Tests Included
-                      </p>
+                      </p> */}
+
+                      <h6>{test?.nooftest} Tests</h6>
 
                       <p className="test-includes-lab-test123">
                         <img
@@ -142,7 +144,7 @@ const ScreenTestsListPage = () => {
                           {Math.round(
                             ((test.actualPrice - test.price) /
                               test.actualPrice) *
-                              100
+                            100
                           )}
                           % Off
                         </a>

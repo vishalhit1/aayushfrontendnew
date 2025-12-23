@@ -113,7 +113,8 @@ const AgeCategoryList = () => {
 
                                             <p className="test-includes-lab-test">
                                                 <img className="test-includes-new" src={testincluded} alt="" />
-                                                {test?.includedTests?.length || 1} Tests Included
+                                                {/* {test?.includedTests?.length || 1} Tests Included */}
+                                                {test?.nooftest} Tests Included
                                             </p>
 
                                             <p className="test-includes-lab-test123">

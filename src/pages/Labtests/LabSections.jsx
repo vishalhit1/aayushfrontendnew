@@ -197,7 +197,7 @@ const LabSections = () => {
                         <div className="labtest-ibndivi-test-abcds-sliders">
                           <img className="test-images-1232122" src={kidney} alt="" />
                           <h4 style={{ height: "auto" }}>{test.name}</h4>
-                          <p className="test-includes-lab-test">
+                          {/* <p className="test-includes-lab-test">
                             {test?.includedTests?.length > 0 ? (
                               <>
                                 <img className="test-includes-new" src={testincluded} alt="" />
@@ -209,6 +209,11 @@ const LabSections = () => {
                                 Single Test Included
                               </>
                             )}
+                          </p> */}
+                          <p className="test-includes-lab-test">
+                            {test.nooftest && test.nooftest > 0
+                              ? `${test.nooftest} Test${test.nooftest > 1 ? 's' : ''} Included`
+                              : '0 Test Included'}
                           </p>
                           <p className="test-includes-lab-test123">
                             <img className="book-recently-new" src={booksin} alt="" />500+ booked recently
