@@ -4890,6 +4890,21 @@ img.test-images-1232122 {
     font-size: 24px;
 }
 
+span.view-more-abcds {
+    color: #46AAA0;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+.popular-health-new-content img {
+    object-fit: cover;
+    height: 195px;
+    border-radius: 100px;
+    background: transparent;
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
 /* .flex-footes {
     display: flex;
     gap: 30px;

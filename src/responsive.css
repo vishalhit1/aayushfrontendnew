@@ -1933,4 +1933,8 @@
     .based-test {
         padding-bottom: 40px;
     }
+
+    .popular-health-new-content img {
+        height: 90px;
+    }
 }

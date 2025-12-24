@@ -510,11 +510,11 @@ const Packagetestdetails = () => {
                                     dangerouslySetInnerHTML={{
                                         __html: expandedDetails
                                             ? pkg.fulltestdetails
-                                            : pkg.fulltestdetails?.substring(0, 250) +
-                                            (pkg.fulltestdetails?.length > 250 ? "..." : "")
+                                            : pkg.fulltestdetails?.substring(0, 550) +
+                                            (pkg.fulltestdetails?.length > 255500 ? "..." : "")
                                     }}
                                 />
-                                {pkg.fulltestdetails?.length > 250 && (
+                                {pkg.fulltestdetails?.length > 550 && (
                                     <span
                                         className="view-more-abcds"
                                         style={{ cursor: "pointer" }}

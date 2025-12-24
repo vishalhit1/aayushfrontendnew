@@ -123,19 +123,26 @@ const LabTestCheckout = () => {
         : 0;
 
     const SLOT_FIXING_THRESHOLD = 499;
-    const SLOT_FIXING_CHARGE = 200;  
+    const SLOT_FIXING_CHARGE = 200;
+
+    // const labTotal = labCart.reduce((sum, test) => {
+    //     const assignedCount = selectedPatients[test._id]?.length || 0;
+    //     const totalForTest = Number(test.price || 0) * (assignedCount || 1);
+    //     return sum + totalForTest;
+    // }, 0);
 
     const labTotal = labCart.reduce((sum, test) => {
-        const assignedCount = selectedPatients[test._id]?.length || 0;
-        const totalForTest = Number(test.price || 0) * (assignedCount || 1);
-        return sum + totalForTest;
+        const assignedCount = selectedPatients[test._id]?.length;
+        // If no patient selected yet, assume 1 for display purpose
+        const countForPrice = assignedCount && assignedCount > 0 ? assignedCount : 1;
+        return sum + Number(test.price || 0) * countForPrice;
     }, 0);
 
-      // Automatic slot fixing charge if subtotal < ₹499
-  const slotCharge = labTotal > 0 && labTotal < SLOT_FIXING_THRESHOLD ? SLOT_FIXING_CHARGE : 0;
+    // Automatic slot fixing charge if subtotal < ₹499
+    const slotCharge = labTotal > 0 && labTotal < SLOT_FIXING_THRESHOLD ? SLOT_FIXING_CHARGE : 0;
 
-  // Grand total including slot charge
-  const grandTotal = labTotal + valueAddOnTotal + slotCharge - discount;
+    // Grand total including slot charge
+    const grandTotal = labTotal + valueAddOnTotal + slotCharge - discount;
 
 
     // const totalToPay = labTotal - (appliedCoupon?.discount || 0);
@@ -561,7 +568,7 @@ const LabTestCheckout = () => {
 
     const selfExists = patients.some(
         (p) => p.relation === "Self" && p._id !== editingPatient?._id
-      );
+    );
 
     return (
         <div className="container my-4">
@@ -876,11 +883,11 @@ const LabTestCheckout = () => {
                         </div>
 
                         {slotCharge > 0 && (
-                <div className="d-flex justify-content-between mb-1">
-                  <span>Slot Fixing Charge </span>
-                  <span>₹{slotCharge.toFixed(2)}</span>
-                </div>
-              )}
+                            <div className="d-flex justify-content-between mb-1">
+                                <span>Slot Fixing Charge </span>
+                                <span>₹{slotCharge.toFixed(2)}</span>
+                            </div>
+                        )}
 
                         {addonSelected && (
                             <div className="d-flex justify-content-between mb-1">

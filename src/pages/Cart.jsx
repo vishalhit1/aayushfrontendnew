@@ -115,9 +115,16 @@ const Cart = () => {
   const SLOT_FIXING_CHARGE = 200;
 
   // --- LAB TEST TOTAL ---
+  // const labTotal = labCart.reduce((sum, test) => {
+  //   const assignedCount = selectedPatients[test._id]?.length || 0;
+  //   return sum + Number(test.price || 0) * assignedCount;
+  // }, 0);
+
   const labTotal = labCart.reduce((sum, test) => {
-    const assignedCount = selectedPatients[test._id]?.length || 0;
-    return sum + Number(test.price || 0) * assignedCount;
+    const assignedCount = selectedPatients[test._id]?.length;
+    // If no patient selected yet, assume 1 for display purpose
+    const countForPrice = assignedCount && assignedCount > 0 ? assignedCount : 1;
+    return sum + Number(test.price || 0) * countForPrice;
   }, 0);
 
   // Automatic slot fixing charge if subtotal < ₹499

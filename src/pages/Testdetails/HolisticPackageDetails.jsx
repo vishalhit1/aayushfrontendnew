@@ -434,10 +434,10 @@ const HolisticPackageDetails = () => {
                                 <div className="view-less-moree">
                                     <h4>Know more about this test</h4>
                                     <p>
-                                        {expandedDetails ? pkg.description : pkg.description?.slice(0, 250)}
-                                        {!expandedDetails && pkg.description?.length > 250 ? "..." : ""}
+                                        {expandedDetails ? pkg.description : pkg.description?.slice(0, 550)}
+                                        {!expandedDetails && pkg.description?.length > 550 ? "..." : ""}
                                     </p>
-                                    {pkg.description?.length > 250 && (
+                                    {pkg.description?.length > 550 && (
                                         <Link
                                             className="view-more-abcds"
                                             style={{ cursor: "pointer" }}

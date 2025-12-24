@@ -442,12 +442,12 @@ const Individualtestdetails = () => {
                                     dangerouslySetInnerHTML={{
                                         __html: expandedDetails
                                             ? test.fulltestdetails
-                                            : test.fulltestdetails?.substring(0, 250) +
-                                            (test.fulltestdetails?.length > 250 ? "..." : "")
+                                            : test.fulltestdetails?.substring(0, 550) +
+                                            (test.fulltestdetails?.length > 550 ? "..." : "")
                                     }}
                                 />
 
-                                {test.fulltestdetails?.length > 250 && (
+                                {test.fulltestdetails?.length > 550 && (
                                     <span
                                         className="view-more-abcds"
                                         style={{ cursor: "pointer" }}

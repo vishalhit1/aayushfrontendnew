@@ -5,6 +5,7 @@ import { GoogleLogin } from "@react-oauth/google";
 import { toast } from "react-toastify";
 import CompleteProfileModal from "./CompleteProfileModal.jsx";
 import ForgotResetModal from "./ForgotResetModal.jsx";
+import { Link } from "react-router-dom";
 
 
 const LoginModal = ({ isOpen, onClose }) => {
@@ -75,7 +76,6 @@ const LoginModal = ({ isOpen, onClose }) => {
         <Modal.Header closeButton>
           <Modal.Title className="sign-up-in">Sign In Your Account</Modal.Title>
         </Modal.Header>
-
         <Modal.Body className="modal-reg-login">
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
@@ -120,7 +120,9 @@ const LoginModal = ({ isOpen, onClose }) => {
               Login
             </Button>
           </Form>
-
+          <div className="signup-modal-new">
+            New user <Link>Register here</Link>
+          </div>
           <div className="text-center mb-3">
             <Button
               variant="link"
