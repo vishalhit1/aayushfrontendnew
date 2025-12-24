@@ -73,7 +73,7 @@ const CompleteProfileModal = ({ isOpen, onClose, user }) => {
             <Form.Label>Phone Number</Form.Label>
             <Form.Control
               type="text"
-              max={10}
+              maxLength={10}
               placeholder="Enter phone number"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
