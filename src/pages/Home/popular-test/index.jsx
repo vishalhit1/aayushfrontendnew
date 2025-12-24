@@ -231,11 +231,7 @@ const PopularTest = () => {
                                                         </>
                                                     )}
                                                 </p> */}
-                                                <p className="test-includes-lab-test">
-                                                    {test.nooftest && test.nooftest > 0
-                                                        ? `${test.nooftest} Test${test.nooftest > 1 ? 's' : ''} Included`
-                                                        : '0 Test Included'}
-                                                </p>
+                                                <p className="test-includes-lab-test">{test.nooftest}+ Tests Included</p>
                                                 <p className="test-includes-lab-test123">
                                                     <img
                                                         className="book-recently-new"
@@ -311,7 +307,8 @@ const PopularTest = () => {
                                                 <h2 className="card-title">
                                                     {pkg.name}
                                                 </h2>
-                                                <p className="tests-info">{pkg.tests?.length || 0}+ Tests Included</p>
+                                                <p className="tests-info">{pkg.nooftest}+ Tests Included</p>
+                                                {/* <p className="tests-info">{pkg.tests?.length || 0}+ Tests Included</p> */}
                                                 <div className="price-section">
                                                     <span className="current-price">₹{pkg.price}/-</span>
                                                     <span className="original-price">₹{pkg.actualPrice}/-</span>

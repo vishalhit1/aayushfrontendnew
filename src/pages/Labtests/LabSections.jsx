@@ -159,7 +159,8 @@ const LabSections = () => {
                           </div>
                           <div className="card-content">
                             <h2 className="card-title">{pkg.name}</h2>
-                            <p className="tests-info">{pkg.testsIncluded || pkg.tests?.length || 0}+ Tests Included</p>
+                            {/* <p className="tests-info">{pkg.testsIncluded || pkg.tests?.length || 0}+ Tests Included</p> */}
+                            <p className="tests-info">{pkg.nooftest}+ Tests Included</p>
                             <div className="price-section">
                               <span className="current-price">₹{pkg.price}/-</span>
                               {pkg.actualPrice && (
@@ -210,11 +211,12 @@ const LabSections = () => {
                               </>
                             )}
                           </p> */}
-                          <p className="test-includes-lab-test">
+                          {/* <p className="test-includes-lab-test">
                             {test.nooftest && test.nooftest > 0
                               ? `${test.nooftest} Test${test.nooftest > 1 ? 's' : ''} Included`
                               : '0 Test Included'}
-                          </p>
+                          </p> */}
+                          <p className="test-includes-lab-test">{test.nooftest}+ Tests Included</p>
                           <p className="test-includes-lab-test123">
                             <img className="book-recently-new" src={booksin} alt="" />500+ booked recently
                           </p>

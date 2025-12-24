@@ -210,11 +210,12 @@ const BasedTests = () => {
                                                 ? `${test.includedTests.length} Tests Included`
                                                 : "Single Test"}
                                         </h5> */}
-                                        <h5>
+                                        {/* <h5>
                                             {test.nooftest && test.nooftest > 0
                                                 ? `${test.nooftest} Test${test.nooftest > 1 ? 's' : ''} Included`
                                                 : '0 Test Included'}
-                                        </h5>
+                                        </h5> */}
+                                        <h5>{test.nooftest}+ Tests Included</h5>
                                         <div className="style-1">
                                             <ins>
                                                 <span className="amount amos">₹ {test.price}/-</span>
