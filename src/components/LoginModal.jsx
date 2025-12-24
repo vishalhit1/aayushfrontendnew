@@ -120,9 +120,6 @@ const LoginModal = ({ isOpen, onClose }) => {
               Login
             </Button>
           </Form>
-          <div className="signup-modal-new">
-            New user <Link>Register here</Link>
-          </div>
           <div className="text-center mb-3">
             <Button
               variant="link"
