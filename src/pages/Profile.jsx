@@ -351,10 +351,10 @@ const Profile = () => {
             <div className="card p-3">
               {/* Profile Picture */}
               <img
-                src="https://doccure.dreamstechnologies.com/html/template/assets/img/patients/patient23.jpg" // dummy profile image
+                src="https://t4.ftcdn.net/jpg/11/28/72/75/360_F_1128727502_ce2UdfqSn42Ia48OeSy7a6UBX590HZnJ.jpg" // dummy profile image
                 alt="User Avatar"
                 className="rounded-circle mb-2 profile-imagess"
-                style={{ width: "100px", height: "100px", objectFit: "cover" }}
+                style={{ width: "140px", height: "140px", objectFit: "cover" }}
               />
               {/* User Info */}
               <div className="user-infos">

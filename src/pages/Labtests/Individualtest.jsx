@@ -250,7 +250,7 @@ const Individualtest = () => {
                   <div style={{ cursor: "pointer" }}
                     onClick={() => window.location.href = `/individualtestdetails/${test._id}`} className='labtest-ibndivi-test-abcds-sliders' key={test._id}>
                     <h4>{test.name}</h4>
-                    <p className="test-includes-lab-test">
+                    {/* <p className="test-includes-lab-test">
                       {test?.includedTests?.length > 0 ? (
                         <>
                           <img className="test-includes-new" src={testincluded} alt="" />
@@ -262,7 +262,8 @@ const Individualtest = () => {
                           Single Test Included
                         </>
                       )}
-                    </p>
+                    </p> */}
+                    <p className="test-includes-lab-test">{test.nooftest}+ Tests Included</p>
                     <p className="test-includes-lab-test123"><img className="book-recently-new" src={booksin} alt="" />500+ booked recently</p>
 
                     <div className='lab-test-content-news'>
