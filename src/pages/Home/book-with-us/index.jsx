@@ -74,7 +74,7 @@ const BookWithUs = () => {
                                     <div className='h5-bg'>
                                         <h5>4</h5>
                                     </div>
-                                    <h6>Quick, Doctor-Verified <br/>Reports</h6>
+                                    <h6>Doctor-Verified <br/>Reports</h6>
                                     <img src={doctsept} alt="" />
                                 </div>
                             </Col>

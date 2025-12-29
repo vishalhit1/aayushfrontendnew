@@ -75,6 +75,12 @@ const Header = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    const handleOpenSignup = () => setSignupOpen(true);
+    document.addEventListener("openSignup", handleOpenSignup);
+    return () => document.removeEventListener("openSignup", handleOpenSignup);
+  }, []);
+
   const fetchCities = async () => {
     try {
       const res = await API.get("/api/commonmaster/getActiveCities");
@@ -264,12 +270,34 @@ const Header = () => {
   // };
 
   const [items, setItems] = useState([]);
-  const handleSearch = async (string) => {
-    if (!string.trim()) return;
+  const [searchKey, setSearchKey] = useState(0);
 
-    const res = await API.get(`/api/search?query=${string}`);
-    setItems(res.data.data);
+  const isFirstRender = useRef(true);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    setItems([]);
+    setSearchKey(prev => prev + 1);
+  }, [location.pathname]);
+  
+
+  const handleSearch = async (string) => {
+    if (!string.trim()) {
+      setItems([]);
+      return;
+    }
+  
+    const res = await API.get(
+      `/api/search?query=${encodeURIComponent(string)}`
+    );
+  
+    setItems(res.data?.data || []);
   };
+  
+  
 
   const handleSelect = (item) => {
     navigate(item.url);
@@ -418,12 +446,19 @@ const Header = () => {
 
                 <div className="react-autocomplete-wrapper">
                   <ReactSearchAutocomplete
+                    key={searchKey}
                     items={items}
                     className="search-inputsasas"
                     placeholder="Search for Cardiology, Lab Tests..."
                     onSearch={handleSearch}
                     onSelect={handleSelect}
-                    fuseOptions={{ keys: ["name"] }}
+                    minLength={1}
+                    debounce={300}
+                    fuseOptions={{
+                      keys: ["name"],
+                      minMatchCharLength: 1, // 🔥 THIS FIXES IT
+                      threshold: 0.4
+                    }}
                     styling={{
                       zIndex: 9999,
                       height: "45px",

@@ -803,9 +803,11 @@ const Cart = () => {
                 </h3>
               </div>
 
-              <button className="proceed-to-checkout" onClick={handleContinue}>
-                Proceed To Checkout <i className="fa fa-arrow-right ms-1"></i>
-              </button>
+              <div className="checkout-newsanew">
+                <button className="proceed-to-checkout" onClick={handleContinue}>
+                  Proceed To Checkout <i className="fa fa-arrow-right ms-1"></i>
+                </button>
+              </div>
               <h5><i className="fa fa-lock" aria-hidden="true"></i> Safe and Secure Payment</h5>
             </div>
           </div>

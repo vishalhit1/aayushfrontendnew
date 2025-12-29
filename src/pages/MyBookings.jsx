@@ -7,6 +7,7 @@ import { CartContext } from "../context/CartContext.jsx";
 import { load } from "@cashfreepayments/cashfree-js";
 import "../styles/myBookings.css";
 import { API_URL } from "../../config.js";
+import { toast } from "react-toastify";
 const statusColors = {
   pending: "#F5A623",
   confirmed: "#2D7DFF",

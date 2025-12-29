@@ -6,8 +6,7 @@ import { toast } from "react-toastify";
 import CompleteProfileModal from "./CompleteProfileModal.jsx";
 import ForgotResetModal from "./ForgotResetModal.jsx";
 import { Link } from "react-router-dom";
-
-
+import SignupModal from "./SignupModal.jsx";
 const LoginModal = ({ isOpen, onClose }) => {
   const { login, googleLogin } = useContext(AuthContext);
   const [email, setEmail] = useState("");
@@ -17,6 +16,7 @@ const LoginModal = ({ isOpen, onClose }) => {
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [googleUser, setGoogleUser] = useState(null);
   const [showForgotModal, setShowForgotModal] = useState(false);
+  const [showSignupModal, setShowSignupModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   if (!isOpen) return null;
   // Validation
@@ -50,7 +50,6 @@ const LoginModal = ({ isOpen, onClose }) => {
     if (!data) return;
     if (!data.isComplete) {
       setGoogleUser(data.user);
-
       setShowProfileModal(true);
     } else {
       onClose();
@@ -60,125 +59,138 @@ const LoginModal = ({ isOpen, onClose }) => {
     onClose();
     window.location.href = "/doctor/login";
   };
-
   return (
     <>
-    {(!showProfileModal && (
-       
-      <Modal 
-       show={isOpen && !showForgotModal}
-        onHide={onClose}
-        centered
-        backdrop="static"
-        size="lg"
-        keyboard={false}
-         >
-        <Modal.Header closeButton>
-          <Modal.Title className="sign-up-in">Sign In Your Account</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="modal-reg-login">
-          <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                onBlur={(e) => validateField("email", e.target.value)}
-                isInvalid={!!errors.email}
-              />
-              <Form.Control.Feedback type="invalid">
-                {errors.email}
-              </Form.Control.Feedback>
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Password</Form.Label>
-              <InputGroup>
+      {(!showProfileModal && (
+        <Modal
+          show={isOpen && !showForgotModal}
+          onHide={onClose}
+          centered
+          backdrop="static"
+          size="lg"
+          keyboard={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title className="sign-up-in">Sign In Your Account</Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="modal-reg-login">
+            <Form onSubmit={handleSubmit}>
+              <Form.Group className="mb-3">
+                <Form.Label>Email</Form.Label>
                 <Form.Control
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                onBlur={(e) => validateField("password", e.target.value)}
-                  isInvalid={!!errors.password}
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  onBlur={(e) => validateField("email", e.target.value)}
+                  isInvalid={!!errors.email}
                 />
-                <Button
-                className="see-password-news"
-                  onClick={() => setShowPassword((prev) => !prev)}
-                >
-                  <i className={showPassword ? "fa fa-eye-slash" : "fa fa-eye"}></i>
-                </Button>
                 <Form.Control.Feedback type="invalid">
-                  {errors.password}
+                  {errors.email}
                 </Form.Control.Feedback>
-              </InputGroup>
-            </Form.Group>
-
-            <Button type="submit" className="login-button-login">
-              Login
-            </Button>
-          </Form>
-          <div className="text-center mb-3">
-            <Button
-              variant="link"
-              className="p-0 text-decoration-none"
-              onClick={() => setShowForgotModal(true)}
-            >
-              Forgot Password?
-            </Button>
-          </div>
-
-          <div className="d-flex align-items-center mb-3">
-            <hr className="flex-grow-1" />
-            <span className="px-3 text-muted">OR</span>
-            <hr className="flex-grow-1" />
-          </div>
-
-          <div className="text-center">
-            <GoogleLogin
-              onSuccess={handleGoogleLogin}
-              onError={() => {
-                console.log("Google Login Failed");
-              }}
-            />
-          </div>
-          <div className="text-center mt-4">
-            <p className="mb-0 text-muted">
-              Are you a doctor?{" "}
-              <a
-              style={{cursor:'pointer'}}
-                className=" text-center"
-                onClick={handleDoctorRedirect}
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Password</Form.Label>
+                <InputGroup>
+                  <Form.Control
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Enter your password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    onBlur={(e) => validateField("password", e.target.value)}
+                    isInvalid={!!errors.password}
+                  />
+                  <Button
+                    className="see-password-news"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                  >
+                    <i className={showPassword ? "fa fa-eye-slash" : "fa fa-eye"}></i>
+                  </Button>
+                  <Form.Control.Feedback type="invalid">
+                    {errors.password}
+                  </Form.Control.Feedback>
+                </InputGroup>
+              </Form.Group>
+              <Button type="submit" className="login-button-login">
+                Login
+              </Button>
+            </Form>
+            <div className="text-center mb-3">
+              <Button
+                variant="link"
+                className="p-0 text-decoration-none"
+                onClick={() => setShowForgotModal(true)}
               >
-                Login here
-              </a>
+                Forgot Password?
+              </Button>
+            </div>
+            <div className="d-flex align-items-center mb-3">
+              <hr className="flex-grow-1" />
+              <span className="px-3 text-muted">OR</span>
+              <hr className="flex-grow-1" />
+            </div>
+            <div className="text-center">
+              <GoogleLogin
+                onSuccess={handleGoogleLogin}
+                onError={() => {
+                  console.log("Google Login Failed");
+                }}
+              />
+            </div>
+            <p className="text-center mt-3">
+              Don't have an account?{" "}
+              <span
+                style={{ color: "#007BFF", cursor: "pointer", textDecoration: "underline" }}
+                onClick={() => {
+                  onClose(); // close login modal
+                  // tell parent to open signup
+                  setTimeout(() => {
+                    // avoid React state update clash
+                    document.dispatchEvent(new CustomEvent("openSignup"));
+                  }, 0);
+                }}
+              >
+                Sign Up
+              </span>
             </p>
-          </div>
-        </Modal.Body>
-      </Modal>
+            <div className="text-center mt-4">
+              <p className="mb-0 text-muted">
+                Are you a doctor?{" "}
+                <a
+                  style={{ cursor: 'pointer' }}
+                  className=" text-center"
+                  onClick={handleDoctorRedirect}
+                >
+                  Login here
+                </a>
+              </p>
+            </div>
+          </Modal.Body>
+        </Modal>
       ))}
-
       {showProfileModal && googleUser && (
         <CompleteProfileModal
           isOpen={showProfileModal}
           user={googleUser}
           onClose={() => {
             setShowProfileModal(false);
-            onClose();
+            // onClose();
           }}
         />
       )}
-
       {showForgotModal && (
         <ForgotResetModal
           isOpen={showForgotModal}
           onClose={() => setShowForgotModal(false)}
         />
       )}
+      {showSignupModal && (
+        <SignupModal
+          isOpen={showSignupModal}
+          onClose={() => setShowSignupModal(false)}
+        />
+      )}
     </>
   );
 };
-
 export default LoginModal;

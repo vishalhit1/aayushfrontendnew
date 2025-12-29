@@ -131,126 +131,110 @@ const LabSections = () => {
 
 
   return (
-    <div className="lab-sections-wrapper pt-5 pb-3">
+    <>
       {cmsSections.length === 0 ? (
-        null
+        <div className="blankdiv-no-data"></div>
       ) : (
-        cmsSections.map((section) => (
-          <Container key={section._id} className="mb-5 aayush-new-packages">
-            <Row>
-              <Col lg={12} className="test-popularws">
-                <h3>{section.title}</h3>
-              </Col>
-            </Row>
+        <div className="lab-sections-wrapper pt-5 pb-3">
+          {cmsSections.map((section) => (
+            <Container key={section._id} className="mb-5 aayush-new-packages">
+              <Row>
+                <Col lg={12} className="test-popularws">
+                  <h3>{section.title}</h3>
+                </Col>
+              </Row>
 
-            {/* Packages slider */}
-
-            <div className="mobile-slider-margin">
-              {section.packages?.length > 0 && (
-                <Slider {...sliderSettingsPackages} className="mt-4" key={slidesToShowPackages}>
-                  {section.packages.map((pkg) => (
-                    <div key={pkg._id}>
-                      <div style={{ cursor: "pointer" }}
-                        onClick={() => window.location.href = `/packagetestdetails/${pkg._id}`} className="test-packages-sliders">
-                        <div className="health-card">
-                          <div className="blue-circle" />
-                          <div className="image-section">
-                            <img alt="Package" src={girlimg} />
-                          </div>
-                          <div className="card-content">
-                            <h2 className="card-title">{pkg.name}</h2>
-                            {/* <p className="tests-info">{pkg.testsIncluded || pkg.tests?.length || 0}+ Tests Included</p> */}
-                            <p className="tests-info">{pkg.nooftest}+ Tests Included</p>
-                            <div className="price-section">
-                              <span className="current-price">₹{pkg.price}/-</span>
-                              {pkg.actualPrice && (
-                                <span className="original-price">₹{pkg.actualPrice}/-</span>
-                              )}
+              {/* Packages slider */}
+              <div className="mobile-slider-margin">
+                {section.packages?.length > 0 && (
+                  <Slider {...sliderSettingsPackages} className="mt-4" key={slidesToShowPackages}>
+                    {section.packages.map((pkg) => (
+                      <div key={pkg._id}>
+                        <div style={{ cursor: "pointer" }}
+                          onClick={() => window.location.href = `/packagetestdetails/${pkg._id}`}
+                          className="test-packages-sliders">
+                          <div className="health-card">
+                            <div className="blue-circle" />
+                            <div className="image-section">
+                              <img alt="Package" src={girlimg} />
                             </div>
-                            <button onClick={() => toggleBook(pkg, "package")} className="book-btn">
-                              {isInCart(pkg._id) ? (
-                                <>
-                                  <i className="fa fa-minus" aria-hidden="true"></i> Added
-                                </>
-                              ) : (
-                                <>
-                                  <i className="fa fa-plus" aria-hidden="true"></i> Book
-                                </>
-                              )}
-                            </button>
+                            <div className="card-content">
+                              <h2 className="card-title">{pkg.name}</h2>
+                              <p className="tests-info">{pkg.nooftest}+ Tests Included</p>
+                              <div className="price-section">
+                                <span className="current-price">₹{pkg.price}/-</span>
+                                {pkg.actualPrice && (
+                                  <span className="original-price">₹{pkg.actualPrice}/-</span>
+                                )}
+                              </div>
+                              <button onClick={() => toggleBook(pkg, "package")} className="book-btn">
+                                {isInCart(pkg._id) ? (
+                                  <>
+                                    <i className="fa fa-minus" aria-hidden="true"></i> Added
+                                  </>
+                                ) : (
+                                  <>
+                                    <i className="fa fa-plus" aria-hidden="true"></i> Book
+                                  </>
+                                )}
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
-                </Slider>
-              )}
-            </div>
+                    ))}
+                  </Slider>
+                )}
+              </div>
 
-            {/* Tests slider */}
-            <div className="mobile-slider-margin12">
-              {section.tests?.length > 0 && (
-                <Slider {...sliderSettingsTests} className="mt-4" key={slidesToShowTests}>
-                  {section.tests.map((test) => (
-                    <div key={test._id}>
-                      <div style={{ cursor: "pointer" }}
-                        onClick={() => window.location.href = `/individualtestdetails/${test._id}`} className="labtest-ibndivi-test-abcds">
-                        <div className="labtest-ibndivi-test-abcds-sliders">
-                          <img className="test-images-1232122" src={kidney} alt="" />
-                          <h4 style={{ height: "auto" }}>{test.name}</h4>
-                          {/* <p className="test-includes-lab-test">
-                            {test?.includedTests?.length > 0 ? (
-                              <>
-                                <img className="test-includes-new" src={testincluded} alt="" />
-                                {test.includedTests.length} Tests Included
-                              </>
-                            ) : (
-                              <>
-                                <img className="test-includes-new" src={testincluded} alt="" />
-                                Single Test Included
-                              </>
-                            )}
-                          </p> */}
-                          {/* <p className="test-includes-lab-test">
-                            {test.nooftest && test.nooftest > 0
-                              ? `${test.nooftest} Test${test.nooftest > 1 ? 's' : ''} Included`
-                              : '0 Test Included'}
-                          </p> */}
-                          <p className="test-includes-lab-test">{test.nooftest}+ Tests Included</p>
-                          <p className="test-includes-lab-test123">
-                            <img className="book-recently-new" src={booksin} alt="" />500+ booked recently
-                          </p>
-                          <div className="lab-test-content-news">
-                            <h5>₹ {test.price}/-</h5>
-                            <h6 style={{ textDecoration: "line-through" }}>₹ {test.actualPrice}/-</h6>
-                          </div>
-                          <div className="labtest-indiv-test-detail">
-                            <Link className="pop-test-read-more1" to={`/individualtestdetails/${test._id}`}>
-                              Read more
-                            </Link>
-                            <button className="book-now-labtest-actions" onClick={() => toggleBook(test, "test")}>
-                              {isInCart(test._id) ? (
-                                <>
-                                  <i className="fa fa-minus" aria-hidden="true"></i> Added
-                                </>
-                              ) : (
-                                <>
-                                  <i className="fa fa-plus" aria-hidden="true"></i> Book
-                                </>
-                              )}
-                            </button>
+              {/* Tests slider */}
+              <div className="mobile-slider-margin12">
+                {section.tests?.length > 0 && (
+                  <Slider {...sliderSettingsTests} className="mt-4" key={slidesToShowTests}>
+                    {section.tests.map((test) => (
+                      <div key={test._id}>
+                        <div style={{ cursor: "pointer" }}
+                          onClick={() => window.location.href = `/individualtestdetails/${test._id}`}
+                          className="labtest-ibndivi-test-abcds">
+                          <div className="labtest-ibndivi-test-abcds-sliders">
+                            <img className="test-images-1232122" src={kidney} alt="" />
+                            <h4 style={{ height: "auto" }}>{test.name}</h4>
+                            <p className="test-includes-lab-test">{test.nooftest}+ Tests Included</p>
+                            <p className="test-includes-lab-test123">
+                              <img className="book-recently-new" src={booksin} alt="" />500+ booked recently
+                            </p>
+                            <div className="lab-test-content-news">
+                              <h5>₹ {test.price}/-</h5>
+                              <h6 style={{ textDecoration: "line-through" }}>₹ {test.actualPrice}/-</h6>
+                            </div>
+                            <div className="labtest-indiv-test-detail">
+                              <Link className="pop-test-read-more1" to={`/individualtestdetails/${test._id}`}>
+                                Read more
+                              </Link>
+                              <button className="book-now-labtest-actions" onClick={() => toggleBook(test, "test")}>
+                                {isInCart(test._id) ? (
+                                  <>
+                                    <i className="fa fa-minus" aria-hidden="true"></i> Added
+                                  </>
+                                ) : (
+                                  <>
+                                    <i className="fa fa-plus" aria-hidden="true"></i> Book
+                                  </>
+                                )}
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
-                </Slider>
-              )}
-            </div>
-          </Container>
-        ))
+                    ))}
+                  </Slider>
+                )}
+              </div>
+            </Container>
+          ))}
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

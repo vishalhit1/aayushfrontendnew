@@ -181,6 +181,7 @@
     .packages-one h4 {
         font-size: 16px;
         margin-bottom: 5px;
+        line-height: 1.3;
     }
 
     .packages-one p {
@@ -206,6 +207,9 @@
 
     .packages-one {
         position: relative;
+        margin-bottom: 15px;
+        padding-top: 12px;
+        padding-bottom: 12px;
     }
 
     button.read-more {
@@ -329,16 +333,17 @@
     }
 
     .search-for-doctors img {
-        width: 55px;
+        width: 45px;
     }
 
     .search-for-doctors h6 {
-        font-size: 16px;
+        font-size: 14px;
         top: -20px;
     }
 
     .search-for-doctors {
         height: 100px;
+        margin-bottom: 25px;
     }
 
     img.videoimgicon {
@@ -786,6 +791,7 @@
 
     .selection-abcd {
         padding: 25px 15px 40px 15px;
+        margin-bottom: 20px;
     }
 
     .category-card {
@@ -1005,6 +1011,7 @@
         width: 31%;
         padding: 15px 0px !important;
         border-radius: 6px;
+        font-size: 14px;
         transition: 0.2s;
         justify-content: center;
         display: flex;
@@ -1053,6 +1060,7 @@
 
     .test-popularws h3 {
         font-size: 20px;
+        margin-bottom: 5px;
         text-align: center;
     }
 
@@ -1093,6 +1101,14 @@
         font-size: 14px;
         margin-top: 5px;
         line-height: 1.5;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .packageforlifestyle-css {
+        padding-top: 10px;
     }
 
     a.pop-test-read-more1 {
@@ -1117,8 +1133,8 @@
     .selling-pack-sec {
         padding-bottom: 15px;
         margin-top: 20px;
-        padding-top: 30px;
-        margin-bottom: 30px !important;
+        padding-top: 0px;
+        margin-bottom: 0px !important;
     }
 
     .media-journey-sliders h4 {
@@ -1169,14 +1185,15 @@
     .packages-one img {
         margin: auto;
         display: block;
-        position: absolute !important;
+        position: initial !important;
         height: auto !important;
-        width: 85px !important;
+        margin-left: 5px;
+        width: 90% !important;
         left: 5px;
         object-fit: contain;
         top: auto !important;
         border-radius: 5px;
-        bottom: 0px !important;
+        bottom: 0 !important;
     }
 
     .test-popularws.mt-5.col-lg-12 {
@@ -1810,6 +1827,7 @@
 
     .bill-summary h5 {
         font-size: 16px;
+        margin-top: 10px;
     }
 
     .bill-summary span {
@@ -1949,6 +1967,42 @@
     }
 
     .popular-test-new12 {
+        padding-top: 30px;
         padding-bottom: 25px;
+    }
+
+    .report-and-fasting-info {
+        margin-top: 15px;
+    }
+
+    .add-book-buttons {
+        margin-top: 20px;
+        margin-bottom: 0px;
+    }
+
+    .popular-test-new12 .slick-slider.mt-4.slick-initialized {
+        margin-top: 0px !important;
+    }
+
+    .action-buttons {
+        padding: 12px 10px;
+        position: fixed;
+        background: #edf7f8;
+        bottom: 0;
+        width: 100%;
+        left: 0px;
+        right: 0px;
+        border-top: #46AAA0 1px solid;
+    }
+    
+    .checkout-newsanew {
+        padding: 0px 10px;
+        position: fixed;
+        background: #edf7f8;
+        bottom: 0;
+        width: 100%;
+        left: 0px;
+        right: 0px;
+        border-top: #46AAA0 1px solid;
     }
 }

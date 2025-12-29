@@ -947,16 +947,16 @@ button.test-book-now {
 }
 
 .search-for-doctors.second {
-    background: #46AAA0;
+    background: #2D8187;
 
 }
 
 .search-for-doctors.third {
-    background: #46AAA0;
+    background: #245963;
 }
 
 .search-for-doctors.fours {
-    background: #46AAA0;
+    background: #2d7583;
 }
 
 .bookwithus p {
@@ -3694,6 +3694,10 @@ a.no-labtest-added {
     font-weight: 700;
     font-size: 20px;
     text-align: center;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     line-height: 1.4;
     margin-top: 10px;
     color: #46AAA0;
