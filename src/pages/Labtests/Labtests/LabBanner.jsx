@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import { API_URL } from "../../../../config";
 
-const HomeBanner = ({ banners = [] }) => {
+const LabBanner = ({ banners = [] }) => {
   if (!banners.length) return null;
 
   const settings = {
@@ -20,19 +20,19 @@ const HomeBanner = ({ banners = [] }) => {
     ],
   };
 
-  console.log("home banners", banners)
+  console.log("home banners",)
 
   return (
-    <section className="home-banner">
+    <>
       <Slider {...settings}>
         {banners.map((b) => (
           <div key={b._id}>
-            <img className="w-100" src={`${API_URL}${b.imageUrl}`} alt="Home Banner" />
+            <img className="w-100" src={`${API_URL}${b.imageUrl}`} alt="Home Banner" style={{ width: "100%", borderRadius: "10px" }}/>
           </div>
         ))}
       </Slider>
-    </section>
+    </>
   );
 };
 
-export default HomeBanner;
+export default LabBanner;

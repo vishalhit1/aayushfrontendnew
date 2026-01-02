@@ -29,6 +29,8 @@ import Aayushhhostlic from "./Labtests/Labtests/Aayushhhostlic";
 import ScreenTest from "./Labtests/Labtests/ScreenTest";
 import MostBooked from "./Labtests/Labtests/MostBooked";
 import TestimonailsLab from "./Labtests/Labtests/TestimonailsLab";
+import LabBanner from "./Labtests/Labtests/LabBanner";
+import { API_URL } from "../../config";
 
 // ---- StickyCart now receives 'totalAmount' prop and shows it ----
 const StickyCart = ({ count, totalAmount, visible }) => {
@@ -88,6 +90,17 @@ const LabTests = () => {
   });
 
   const [cmsSections, setCmsSections] = useState([]);
+  const [cms, setCms] = useState(null);
+
+  useEffect(() => {
+    const fetchCMS = async () => {
+      const { data } = await API.get("/api/labpagecms");
+      setCms(data);
+    };
+    fetchCMS();
+  }, []);
+
+  console.log("cms", cms)
 
   useEffect(() => {
     fetchTests();
@@ -239,7 +252,8 @@ const LabTests = () => {
   // Do not show sticky cart if empty
   const showStickyCart = labCart && labCart.length > 0;
 
-  console.log("cmsSection>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", cmsSections)
+
+
 
   return (
     <div className="labtest-new-all">
@@ -253,9 +267,11 @@ const LabTests = () => {
       <HomeSearch />
       <CalltoActions />
       <Container>
+      {cms?.herobanners?.map((b) => (
         <div className="banner-new-labtest mb-5">
-          <img src={banner123} style={{ width: "100%" }} alt="" />
+          <img src={`${API_URL}${b.imageUrl}`} style={{ width: "100%" }} alt="" />
         </div>
+          ))}
       </Container>
       {/* <Healthcategories /> */}
       <ThreeTests />
@@ -264,11 +280,16 @@ const LabTests = () => {
       <BasicInfo />
       <Ourpackages />
       <Container>
-        <div className="banner-new-labtest mb-5">
+        {/* <div className="banner-new-labtest mb-5">
           <img src={homebanner} style={{ width: "100%", borderRadius: "10px" }} alt="" />
-        </div>
+        </div> */}
+        <LabBanner banners={cms?.banners} />
       </Container>
+      {cmsSections.length === 0 ? (
+        null
+      ) : (
       <LabSections />
+      )}
 
       <Packagesforlifestyle />
 
@@ -294,7 +315,10 @@ const LabTests = () => {
       <Aayushhhostlic />
       <Individualtest />
       <ScreenTest />
-      <TestimonailsLab />
+      {cms?.testimonialVideos?.length > 0 && (
+      <TestimonailsLab videos={cms.testimonialVideos}/>
+      )}
+
       <div className='bookwithus' style={{ background: 'white' }}>
         <div className='text-center'>
           <h2 className='testimonial-heading'>Why Choose Us</h2>

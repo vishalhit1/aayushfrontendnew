@@ -28,14 +28,28 @@ import HomeSearch from './Search/HomeSearch'
 import NextUpcomingBooking from './Home/NextUpcomingBooking.js'
 import { Link } from 'react-router-dom'
 import StickyBottomCart from "./StickyBottomCart.jsx";
+import API from "../api/axios";
+
 
 const Homepage = () => {
 
+  const [cms, setCms] = useState(null);
+
+  useEffect(() => {
+    const fetchCMS = async () => {
+      const { data } = await API.get("/api/homecms");
+      setCms(data);
+    };
+    fetchCMS();
+  }, []);
+
+  console.log("cms", cms)
+
   return (
     <div>
-      <StickyBottomCart/>
+      <StickyBottomCart />
       <HomeSearch />
-      <HomeBanner />
+      <HomeBanner banners={cms?.banners} />
       <NextUpcomingBooking />
       <Container className='mt-3 mb-3 mobile-view d-none'>
         <Row>
@@ -78,11 +92,17 @@ const Homepage = () => {
 
       <BasedTests />
 
-      <VideoSection />
+      {cms?.youtubeVideos?.length > 0 && (
+        <VideoSection videos={cms.youtubeVideos} />
+      )}
+
 
       <BookWithUs />
 
-      <Testimonials />
+      {cms?.testimonialVideos?.length > 0 && (
+        <Testimonials videos={cms.testimonialVideos} />
+      )}
+
 
       <MediaJourney />
 

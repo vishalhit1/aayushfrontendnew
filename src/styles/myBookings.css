@@ -253,9 +253,19 @@
        ============================================ */
   @media (max-width: 768px) {
     .booking-tabs button {
-      width: 45%;
+      width: 50%;
       font-size: 0.9rem;
       padding: 12px;
+    }
+
+    h4.booking-section-title {
+      font-size: 22px !important;
+      margin-bottom: 25px !important;
+      text-align: center;
+  }
+
+    .booking-content {
+      margin-top: 30px;
     }
   
     .booking-header {
@@ -273,12 +283,6 @@
     .booking-tabs {
       gap: 10px;
       margin-bottom: 20px;
-    }
-  
-    .booking-tabs button {
-      width: 100%;
-      padding: 12px;
-      font-size: 0.9rem;
     }
   
     .booking-card {

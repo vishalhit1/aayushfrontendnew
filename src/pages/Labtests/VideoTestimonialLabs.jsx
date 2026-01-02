@@ -3,8 +3,9 @@ import { Col, Container } from 'react-bootstrap'
 import Slider from "react-slick";
 import videoimg from "../../assets/banner/media.png"
 import videoimg12 from "../../assets/icons/playicon.gif"
+import { API_URL } from '../../../config';
 
-const VideoTestimonialLabs = () => {
+const VideoTestimonialLabs = ({ videos = [] }) => {
     const [slidesToShow, setSlidesToShow] = useState(3);
 
     const getWindowSize = () => {
@@ -19,7 +20,7 @@ const VideoTestimonialLabs = () => {
 
         if (width < 576) {
             // Mobile devices
-            setSlidesToShow(2.12);
+            setSlidesToShow(1.12);
         } else if (width >= 576 && width < 768) {
             // Small tablets
             setSlidesToShow(1);
@@ -80,62 +81,19 @@ const VideoTestimonialLabs = () => {
     return (
         <div className='videosection-testimonials'>
             <Slider {...settings} className="mt-5" key={slidesToShow}>
-                <div>
-                    <div className="videosection-testimonials-sliders">
-                        <div className="videosection-testimonials-overlay" />
-                        <img className="w-100" alt="" src={videoimg} />
-                        <img className='gi-f-images' src={videoimg12} alt="" />
+                {videos.map((t) => (
+                    <div key={t._id}>
+                        <div className="videosection-testimonials-sliders12">
+                            <div className="videosection-testimonials-overlay12" />
+                            <video
+                                controls
+                                preload="metadata"
+                                className="w-100"
+                                src={`${API_URL}${t.videoUrl}`}
+                            />
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <div className="videosection-testimonials-sliders">
-                        <div className="videosection-testimonials-overlay" />
-                        <img className="w-100" alt="" src={videoimg} />
-                        <img className='gi-f-images' src={videoimg12} alt="" />
-                    </div>
-                </div>
-                <div>
-                    <div className="videosection-testimonials-sliders">
-                        <div className="videosection-testimonials-overlay" />
-                        <img className="w-100" alt="" src={videoimg} />
-                        <img className='gi-f-images' src={videoimg12} alt="" />
-                    </div>
-                </div>
-                <div>
-                    <div className="videosection-testimonials-sliders">
-                        <div className="videosection-testimonials-overlay" />
-                        <img className="w-100" alt="" src={videoimg} />
-                        <img className='gi-f-images' src={videoimg12} alt="" />
-                    </div>
-                </div>
-                <div>
-                    <div className="videosection-testimonials-sliders">
-                        <div className="videosection-testimonials-overlay" />
-                        <img className="w-100" alt="" src={videoimg} />
-                        <img className='gi-f-images' src={videoimg12} alt="" />
-                    </div>
-                </div>
-                <div>
-                    <div className="videosection-testimonials-sliders">
-                        <div className="videosection-testimonials-overlay" />
-                        <img className="w-100" alt="" src={videoimg} />
-                        <img className='gi-f-images' src={videoimg12} alt="" />
-                    </div>
-                </div>
-                <div>
-                    <div className="videosection-testimonials-sliders">
-                        <div className="videosection-testimonials-overlay" />
-                        <img className="w-100" alt="" src={videoimg} />
-                        <img className='gi-f-images' src={videoimg12} alt="" />
-                    </div>
-                </div>
-                <div>
-                    <div className="videosection-testimonials-sliders">
-                        <div className="videosection-testimonials-overlay" />
-                        <img className="w-100" alt="" src={videoimg} />
-                        <img className='gi-f-images' src={videoimg12} alt="" />
-                    </div>
-                </div>
+                ))}
             </Slider>
         </div>
     )

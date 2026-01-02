@@ -5,7 +5,7 @@ import API from '../../../api/axios';
 import { API_URL } from '../../../../config';
 import VideoTestimonials from '../VideoTestimonials';
 
-const Testimonials = () => {
+const Testimonials = ({ videos = [] }) => {
     const [slidesToShow, setSlidesToShow] = useState(3);
 
     const [testimonials, setTestimonials] = useState([]);
@@ -170,7 +170,7 @@ const Testimonials = () => {
                 <div className='testimonails-section' ref={sectionRef}>
                     <h2 className='testimonial-heading'>Testimonials</h2>
                     <h3>15k Users Trust Aayush Wellness Limited Worldwide</h3>
-                    <VideoTestimonials />
+                    <VideoTestimonials videos={videos}/>
                     <Slider {...settings} className="mt-4" key={slidesToShow}>
                         {testimonials?.map((item, index) => (
                             <div key={index}>
