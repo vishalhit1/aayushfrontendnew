@@ -1,18 +1,19 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { Modal, Spinner, Col, Row } from "react-bootstrap";
+import React, { useState, useEffect, useContext, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+import { Modal, Col, Row } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { CartContext } from "../context/CartContext.jsx";
+import { AuthContext } from "../context/AuthContext.jsx";
 import "../styles/address.css";
 import API from "../api/axios.js";
-import { AuthContext } from "../context/AuthContext.jsx";
-
-import nopatient from "../assets/noadress.gif"
+import nopatient from "../assets/noadress.gif";
 
 const LabtestAddressPage = () => {
   const navigate = useNavigate();
   const { selectedAddress, setSelectedAddress } = useContext(CartContext);
   const { user } = useContext(AuthContext);
+
+  // Form states
   const [addresses, setAddresses] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({
@@ -25,100 +26,198 @@ const LabtestAddressPage = () => {
     state: "",
   });
   const [editing, setEditing] = useState(null);
-  const [isediting, setIsEditing] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  // Dropdown states
   const [statelist, setStateList] = useState([]);
   const [citylist, setCityList] = useState([]);
 
+  // Serviceability states
+  const [serviceability, setServiceability] = useState(null);
+  const [checkingService, setCheckingService] = useState(false);
+
+  // Memoized serviceability checker
+  const checkServiceability = useCallback(async (pincode, stateId, cityId) => {
+    if (!pincode || pincode.length !== 6 || !stateId || !cityId) {
+      setServiceability(null);
+      return false;
+    }
+
+    try {
+      setCheckingService(true);
+      // ✅ Fixed: Use GET with params (matches your backend)
+      const res = await API.get(`/api/serviceablearea/check/${pincode}`, {
+        params: {
+          pincode,  // ✅ Send as query param
+          stateId,
+          cityId
+        }
+      });
+
+      const isServiceable = res.data.serviceable;
+      setServiceability({ serviceable: isServiceable });
+      return isServiceable;
+    } catch (err) {
+      console.error("Serviceability check failed:", err);
+      setServiceability({ serviceable: false });
+      return false;
+    } finally {
+      setCheckingService(false);
+    }
+  }, []);
+
+  // Load initial data
   useEffect(() => {
     fetchAddresses();
     fetchStates();
   }, []);
+
+  // ✅ FIXED: Wait for states before auto-checking form
+  useEffect(() => {
+    if (statelist.length === 0) return;
+
+    const stateObj = statelist.find((s) => s.name === form.state);
+    const cityObj = citylist.find((c) => c.name === form.city);
+
+    if (form.pincode.length === 6 && stateObj?._id && cityObj?._id) {
+      checkServiceability(form.pincode, stateObj._id, cityObj._id);
+    } else {
+      setServiceability(null);
+    }
+  }, [form.pincode, form.state, form.city, statelist, citylist, checkServiceability]);
+
+  // ✅ CRITICAL FIX: Load cities when states load OR address selected
+  useEffect(() => {
+    if (statelist.length > 0 && addresses.length > 0) {
+      // Load cities for the first address's state
+      const firstAddrState = addresses[0]?.state;
+      const stateObj = statelist.find(s => s.name === firstAddrState);
+      if (stateObj?._id) {
+        fetchCities(stateObj._id);
+      }
+    }
+  }, [statelist, addresses]);
+
   const fetchAddresses = async () => {
     try {
       const res = await API.get("/api/users/addresses");
       const fetchedAddresses = res.data.addresses || [];
       setAddresses(fetchedAddresses);
-      // Only auto-select default if nothing is already selected
-      if (!selectedAddress) {
+
+      // Auto-select default AFTER states load
+      if (!selectedAddress && fetchedAddresses.length > 0) {
         const defaultAddr = fetchedAddresses.find((a) => a.isDefault);
-        if (defaultAddr) setSelectedAddress(defaultAddr);
+        if (defaultAddr && statelist.length > 0) {
+          handleSelect(defaultAddr);
+        }
       }
     } catch (err) {
       console.error(err);
+      toast.error("Failed to load addresses");
     }
   };
 
   const fetchStates = async () => {
     try {
       const res = await API.get("/api/commonmaster/getActivestates");
-      setStateList(res.data.data);
-    } catch {
+      setStateList(res.data.data || []);
+    } catch (err) {
+      console.error(err);
       toast.error("Failed to fetch states");
     }
   };
 
-  // Fetch cities by state
-  // const fetchCities = async (stateId) => {
-  //   if (!stateId) return;
-  //   try {
-  //     const res = await API.get("/api/commonmaster/getActiveCities", {
-  //       params: { state: stateId }
-  //     });
-  //     setCityList(res.data.data || []);
-  //   } catch {
-  //     toast.error("Failed to load cities");
-  //   }
-  // };
-
-  // 🟢 Fetch Cities by State ID
   const fetchCities = async (stateId, prefillCity = null) => {
-    if (!stateId) return setCityList([]);
+    if (!stateId) {
+      setCityList([]);
+      return;
+    }
+
     try {
       const res = await API.get("/api/commonmaster/getActiveCities", {
         params: { state: stateId },
       });
       setCityList(res.data.data || []);
+
       if (prefillCity) {
-        setForm((prev) => ({ ...prev, city: prefillCity }));
+        setForm(prev => ({ ...prev, city: prefillCity }));
       }
-    } catch {
+    } catch (err) {
+      console.error(err);
       toast.error("Failed to load cities");
+      setCityList([]);
     }
   };
 
+  // ✅ FIXED: Load cities BEFORE checking serviceability
+  const handleSelect = async (addr) => {
+    console.log('🔍 Selecting address:', addr);
+    setSelectedAddress(addr);
+  
+    const stateObj = statelist.find((s) => s.name === addr.state);
+    
+    if (!stateObj?._id) {
+      console.log('❌ No state found for:', addr.state);
+      setServiceability(null);
+      return;
+    }
+  
+    console.log('🔍 Loading cities for state:', stateObj.name);
+    
+    // ✅ ALWAYS load cities fresh
+    await fetchCities(stateObj._id, addr.city);
+    
+    // ✅ Wait for citylist to update (give React time to re-render)
+    await new Promise(resolve => setTimeout(resolve, 100));
+    
+    const cityObj = citylist.find((c) => c.name === addr.city);
+    console.log('🔍 citylist after load:', citylist.length, 'cityObj:', cityObj);
+  
+    if (!cityObj?._id) {
+      console.log('❌ No cityId found for:', addr.city);
+      // toast.warning("City not found. Please edit address.");
+      setServiceability(null);
+      return;
+    }
+  
+    if (addr.pincode?.length === 6) {
+      console.log('🔍 Checking serviceability...');
+      const result = await checkServiceability(addr.pincode, stateObj._id, cityObj._id);
+      console.log('✅ Service result:', result);
+    } else {
+      setServiceability(null);
+    }
+  };
+  
 
-  const handleSelect = (addr) => setSelectedAddress(addr);
   const handleDelete = async (id) => {
-    if (!window.confirm("Are you sure you want to delete this address?")) return;
+    if (!window.confirm("Delete this address?")) return;
+
     try {
       await API.delete(`/api/users/address/${id}`);
-      toast.success("Address removed");
+      toast.success("Address deleted");
       fetchAddresses();
-      if (selectedAddress?._id === id) setSelectedAddress(null);
+
+      if (selectedAddress?._id === id) {
+        setSelectedAddress(null);
+        setServiceability(null);
+      }
     } catch (err) {
-      console.error(err);
       toast.error("Failed to delete address");
     }
   };
+
   const handleEdit = (addr) => {
-    console.log("addr", addr)
     setForm(addr);
     setEditing(addr._id);
-    setIsEditing(true)
     setShowForm(true);
 
-    // ✅ Load the cities for the selected state
     const selectedState = statelist.find((s) => s.name === addr.state);
-    if (selectedState) {
-      // prefill the dropdown and set city
+    if (selectedState?._id) {
       fetchCities(selectedState._id, addr.city);
     }
-
   };
 
-  // 🟢 Handle State Change
   const handleStateChange = (e) => {
     const selectedStateName = e.target.value;
     const selectedState = statelist.find((s) => s.name === selectedStateName);
@@ -126,282 +225,253 @@ const LabtestAddressPage = () => {
     setForm((prev) => ({
       ...prev,
       state: selectedStateName,
-      city: "", // reset city whenever state changes
-    }));
-
-    if (selectedState) fetchCities(selectedState._id);
-    else setCityList([]); // clear city if no valid state
-  };
-
-
-  const handleChange = (e) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-    
-      // 🛡️ Field Validations
-      const { name, phone, flatNo, street, city, pincode, state } = form;
-    
-      if (!name.trim()) return toast.error("Please enter recipient's name.");
-      if (!phone.trim() || !/^[0-9]{10}$/.test(phone))
-        return toast.error("Please enter a valid 10-digit mobile number.");
-      if (!flatNo.trim()) return toast.error("Please enter your house/flat number.");
-      if (!street.trim()) return toast.error("Please enter your area/street name.");
-      if (!state.trim()) return toast.error("Please select your state.");
-      if (!city.trim()) return toast.error("Please select your city.");
-      if (!pincode.trim() || !/^[0-9]{6}$/.test(pincode))
-        return toast.error("Please enter a valid 6-digit pincode.");
-    
-      try {
-        setLoading(true);
-    
-        if (editing) {
-          await API.patch(`/api/users/address/${editing}`, form);
-          toast.success("Address updated successfully!");
-        } else {
-          await API.post("/api/users/address", form);
-          toast.success("Address added successfully!");
-        }
-    
-        // Reset after submit
-        setForm({
-          name: "",
-          phone: "",
-          flatNo: "",
-          street: "",
-          city: "",
-          pincode: "",
-          state: "",
-        });
-        setEditing(null);
-        setIsEditing(false);
-        setShowForm(false);
-        fetchAddresses();
-      } catch (err) {
-        console.error(err);
-        toast.error("Failed to save address, please try again.");
-      } finally {
-        setLoading(false);
-      }
-    };
-    
-  const handleSetDefault = async (id) => {
-    try {
-      const res = await API.patch(`/api/users/set/address/${id}`);
-      toast.success("Default address updated");
-      fetchAddresses();
-      setSelectedAddress(res.data.address); // auto select default
-    } catch (err) {
-      console.error(err);
-      toast.error("Failed to set default address");
-    }
-  };
-  const handleAddmodal = () => {
-    setForm({
-      name: "",
-      phone:  "",
-      flatNo: "",
-      street: "",
       city: "",
       pincode: "",
-      state: "",
-    });
-    setIsEditing(false)
-    setShowForm(true)
-  }
-  console.log(isediting)
-  if (loading) {
-    return (
-      <div className="fullpage-loader">
-        <div className="spinner"></div>
-      </div>
-    );
-  }
+    }));
+    setServiceability(null);
 
-
-  const allowOnlyNumbers = (value) => {
-    return value?.replace(/\D/g, "") || "";
+    if (selectedState?._id) {
+      fetchCities(selectedState._id);
+    } else {
+      setCityList([]);
+    }
   };
-  console.log(isediting)
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name === "city") {
+      setForm((prev) => ({ ...prev, city: value, pincode: "" }));
+      setServiceability(null);
+    } else {
+      setForm((prev) => ({ ...prev, [name]: value }));
+    }
+  };
+
+  const handlePincodeChange = (e) => {
+    const value = e.target.value.replace(/\D/g, "").slice(0, 6);
+    setForm((prev) => ({ ...prev, pincode: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const { name, phone, flatNo, street, city, pincode, state } = form;
+
+    if (!name.trim() || !/^\d{10}$/.test(phone) || !flatNo.trim() || !street.trim() ||
+      !state || !city || pincode.length !== 6) {
+      return toast.error("Fill all required fields");
+    }
+
+    if (serviceability !== null && !serviceability.serviceable) {
+      return toast.error("Service not available in this area");
+    }
+
+    try {
+      setLoading(true);
+
+      let savedAddress;
+      if (editing) {
+        const res = await API.patch(`/api/users/address/${editing}`, form);
+        savedAddress = res.data.address;
+        toast.success("Address updated!");
+      } else {
+        const res = await API.post("/api/users/address", form);
+        savedAddress = res.data.address;
+        toast.success("Address saved!");
+      }
+
+      setSelectedAddress(savedAddress);
+      setEditing(null);
+      setShowForm(false);
+      setForm({ name: "", phone: "", flatNo: "", street: "", city: "", pincode: "", state: "" });
+      fetchAddresses();
+
+    } catch (err) {
+      toast.error("Failed to save address");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSetDefault = async (id) => {
+    try {
+      const res = await API.patch(`/api/users/set-address/${id}`);
+      toast.success("Default address set");
+      fetchAddresses();
+      if (res.data.address) handleSelect(res.data.address);
+    } catch (err) {
+      toast.error("Failed to set default");
+    }
+  };
+
+  const handleAddModal = () => {
+    setForm({ name: "", phone: "", flatNo: "", street: "", city: "", pincode: "", state: "" });
+    setEditing(null);
+    setShowForm(true);
+  };
+
+  if (loading) {
+    return <div className="fullpage-loader"><div className="spinner"></div></div>;
+  }
+
   return (
-    <>
-      <div className="container my-4">
-        <button className="add-patie" onClick={() => handleAddmodal()}>
-          + Add new address
-        </button>
-        {addresses.length === 0 ? (
-          <div className="no-patient-records">
-            <div className="no-patient-records">
-              <img src={nopatient} alt="No addresses found" />
-              <h3>No Address Found</h3>
-            </div>
+    <div className="container my-4">
+      <button className="add-patie" onClick={handleAddModal}>+ Add new address</button>
+
+      {addresses.length === 0 ? (
+        <div className="no-patient-records">
+          <img src={nopatient} alt="No addresses" />
+          <h3>No Address Found</h3>
+        </div>
+      ) : (
+        <div className="selection-abcd" style={{ background: '#F9F0ED' }}>
+          <div className="select-medical-category">
+            <h3>Select Address</h3>
           </div>
-        ) : (
-          <div className="selection-abcd" style={{ background: '#F9F0ED' }}>
-            <div className="select-medical-category">
-              <h3>Select Address</h3>
-            </div>
-            {/* Address List */}
-            <div className="address-list">
-              {addresses.map((addr) => (
-                <div
-                  key={addr._id}
-                  className={`address-card ${selectedAddress?._id === addr._id ? "selected" : ""}`}
-                >
-                  <label className="address-label">
-                    <input
-                      type="radio"
-                      name="selectedAddress"
-                      checked={selectedAddress?._id === addr._id}
-                      onChange={() => handleSelect(addr)}
-                    />
-                    <div className="address-info">
-                      <p><strong>{addr.name}</strong></p>
-                      <p>
-                        {addr.flatNo}, {addr.street}, {addr.city} ({addr.pincode}), {addr.state}
-                      </p>
-                      <p>{addr.phone}</p>
-                    </div>
-                  </label>
-                  <div className="address-actions">
-                    <button className="editbutton" onClick={() => handleEdit(addr)}>
-                      <i className="fa fa-edit" /> Edit
-                    </button>
-                    <button className="removebutton" onClick={() => handleDelete(addr._id)}>
-                      <i className="fa fa-trash" /> Remove
-                    </button>
-                    {!addr.isDefault && (
-                      <button className="defaultbutton" onClick={() => handleSetDefault(addr._id)}>
-                        Set as Default
-                      </button>
-                    )}
-                    {addr.isDefault && <span className="default-label">Default</span>}
+
+          <div className="address-list">
+            {addresses.map((addr) => (
+              <div key={addr._id} className={`address-card ${selectedAddress?._id === addr._id ? "selected" : ""}`}>
+                <label className="address-label">
+                  <input
+                    type="radio"
+                    name="selectedAddress"
+                    checked={selectedAddress?._id === addr._id}
+                    onChange={() => handleSelect(addr)}
+                  />
+                  <div className="address-info">
+                    <p><strong>{addr.name}</strong></p>
+                    <p>{addr.flatNo}, {addr.street}, {addr.city} ({addr.pincode}), {addr.state}</p>
+                    <p>{addr.phone}</p>
                   </div>
-                </div>
-              ))}
+                </label>
+                <div className="address-actions">
+                  <button className="editbutton" onClick={() => handleEdit(addr)}>
+                    <i className="fa fa-edit" /> Edit
+                  </button>
+                  <button className="removebutton" onClick={() => handleDelete(addr._id)}>
+                    <i className="fa fa-trash" /> Remove
+                  </button>
+                  {!addr.isDefault && (
+                    <button className="defaultbutton" onClick={() => handleSetDefault(addr._id)}>
+                      Set as Default
+                    </button>
+                  )}
+                  {addr.isDefault && <span className="default-label">Default</span>}
 
-              <div className="action-buttons mt-5">
-                <button className="go-backs" onClick={() => navigate('/cart')}>
-                  <i className="fa fa-chevron-left"></i> Back
-                </button>
-                <button
-                  className="continue-abcd"
-                  disabled={!selectedAddress}
-                  onClick={() => navigate("/lab/slot")}
-                >
-                  Continue <i className="fa fa-chevron-right"></i>
-                </button>
+                  {selectedAddress?._id === addr._id && (
+                    <div className={serviceability?.serviceable ? "service-indicator mt-2 p-2 rounded bg-light" : ""}>
+                      {checkingService ? (
+                        <small>🔄 Checking service...</small>
+                      ) : serviceability?.serviceable ? (
+                        <small className="text-success fw-bold">✅ Service Available</small>
+                      ) : serviceability !== null ? (
+                        <small className="text-danger fw-bold">❌ Not Serviceable</small>
+                      ) : (
+                        null
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
+            ))}
+
+            <div className="action-buttons mt-5">
+              <button className="go-backs" onClick={() => navigate('/cart')}>
+                <i className="fa fa-chevron-left"></i> Back
+              </button>
+              <button
+                className="continue-abcd"
+                disabled={!selectedAddress || checkingService || (serviceability !== null && !serviceability.serviceable)}
+                onClick={async () => {
+                  console.log("🚀 Continue clicked");
+                  if (!selectedAddress) return toast.error("Select an address");
+
+                  // ✅ FIXED: RE-LOAD cities before final validation
+                  const stateObj = statelist.find(s => s.name === selectedAddress.state);
+                  console.log("🔍 stateObj:", stateObj);
+
+                  if (stateObj?._id) {
+                    // Ensure cities are loaded
+                    if (!citylist.find(c => c.name === selectedAddress.city)) {
+                      console.log("🔍 Re-loading cities...");
+                      await fetchCities(stateObj._id, selectedAddress.city);
+                    }
+                  }
+
+                  // ✅ Now get fresh cityObj
+                  const cityObj = citylist.find(c => c.name === selectedAddress.city);
+                  console.log("🔍 Final cityObj:", cityObj?.name);
+
+                  if (!stateObj?._id || !cityObj?._id) {
+                    toast.error("Address missing city/state details. Please edit address.");
+                    return;
+                  }
+
+                  // ✅ FINAL service check
+                  const isServiceable = await checkServiceability(
+                    selectedAddress.pincode,
+                    stateObj._id,
+                    cityObj._id
+                  );
+
+                  if (isServiceable) {
+                    navigate("/lab/slot");
+                  }
+                }}
+              >
+                {checkingService ? "Checking..." : "Continue"}
+                <i className="fa fa-chevron-right"></i>
+              </button>
+
             </div>
           </div>
-        )}
+        </div>
+      )}
 
-        {/* Add/Edit Address Modal */}
-        <Modal size="lg" show={showForm} onHide={() => { setShowForm(false), setIsEditing(false) }} centered>
-          <Modal.Header closeButton>
-            <Modal.Title>{isediting ? "Edit Address" : "Add Address"}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <form className="patient-selection" onSubmit={handleSubmit}>
-              <Row>
-                <Col lg={6}>
-                  <label htmlFor="Full Name">Recipient's Full Name</label>
-                  <input
-                    name="name"
-                    className="form-control"
-                    value={form.name}
-                    onChange={handleChange}
-                    placeholder="Name"
-                    required
-                  />
-                </Col>
-                <Col lg={6}>
-                  <label htmlFor="Full Name">Mobile Number</label>
-                  <input
-                    name="phone"
-                    value={allowOnlyNumbers(form.phone)}
-                    maxLength={10}
-                    className="form-control"
-                    onChange={handleChange}
-                    placeholder="Phone"
-                    required
-                  />
-                </Col>
-                <Col lg={6}>
-                  <label htmlFor="Full Name">House/Flat No</label>
-                  <input
-                    name="flatNo"
-                    className="form-control"
-                    value={form.flatNo}
-                    onChange={handleChange}
-                    placeholder="House/Flat No."
-                    required
-                  />
-                </Col>
-                <Col lg={6}>
-                  <label htmlFor="Full Name">Area/Street</label>
-                  <input
-                    name="street"
-                    className="form-control"
-                    value={form.street}
-                    onChange={handleChange}
-                    placeholder="Area/Street"
-                    required
-                  />
-                </Col>
-                <Col lg={6}>
-                  <label htmlFor="Full Name">State</label>
-                  <select
-                    name="state"
-                    className="form-control"
-                    value={form.state}
-                    onChange={handleStateChange}
-                    required
-                  >
-                    <option value="">Select State</option>
-                    {statelist.map((s) => (
-                      <option key={s._id} value={s.name}>
-                        {s.name}
-                      </option>
-                    ))}
-                  </select>
-                </Col>
-                <Col lg={6}>
-                  <label htmlFor="Full Name">City</label>
-                  <select
-                    className="form-control"
-                    name="city"
-                    value={form.city}
-                    onChange={handleChange}
-                    required
-                  >
-                    <option value="">Select City</option>
-                    {citylist.map((c) => (
-                      <option key={c._id} value={c.name}>
-                        {c.name}
-                      </option>
-                    ))}
-                  </select>
-                </Col>
-                <Col lg={6}>
-                  <label htmlFor="Full Name">Pincode</label>
-                  <input
-                    name="pincode"
-                    className="form-control"
-                    value={form.pincode}
-                    onChange={handleChange}
-                    placeholder="Pincode"
-                    required
-                  />
-                </Col>
-
-              </Row>
-              <button className="button-add-update" type="submit">{isediting ? "Update Address" : "Add Address"}</button>
-            </form>
-          </Modal.Body>
-        </Modal>
-      </div>
-    </>
+      {/* Modal - unchanged */}
+      <Modal size="lg" show={showForm} onHide={() => setShowForm(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>{editing ? "Edit Address" : "Add Address"}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form className="patient-selection" onSubmit={handleSubmit}>
+            <Row>
+              <Col lg={6}><label>Recipient's Full Name *</label><input name="name" className="form-control" value={form.name} onChange={handleChange} required /></Col>
+              <Col lg={6}><label>Mobile Number *</label><input name="phone" className="form-control" value={form.phone.replace(/\D/g, '')} maxLength={10} onChange={handleChange} required /></Col>
+              <Col lg={6}><label>House/Flat No *</label><input name="flatNo" className="form-control" value={form.flatNo} onChange={handleChange} required /></Col>
+              <Col lg={6}><label>Area/Street *</label><input name="street" className="form-control" value={form.street} onChange={handleChange} required /></Col>
+              <Col lg={6}>
+                <label>State *</label>
+                <select name="state" className="form-control" value={form.state} onChange={handleStateChange} required>
+                  <option value="">Select State</option>
+                  {statelist.map(s => <option key={s._id} value={s.name}>{s.name}</option>)}
+                </select>
+              </Col>
+              <Col lg={6}>
+                <label>City *</label>
+                <select name="city" className="form-control" value={form.city} onChange={handleChange} required>
+                  <option value="">Select City</option>
+                  {citylist.map(c => <option key={c._id} value={c.name}>{c.name}</option>)}
+                </select>
+              </Col>
+              <Col lg={6}>
+                <label>Pincode *</label>
+                <input name="pincode" className="form-control" value={form.pincode} onChange={handlePincodeChange} maxLength={6} placeholder="123456" required />
+                {checkingService && <small className="text-muted">🔄 Checking...</small>}
+                {serviceability?.serviceable && <small className="text-success mt-1 d-block">✅ Service Available</small>}
+                {serviceability && !serviceability.serviceable && <small className="text-danger mt-1 d-block">❌ Not Serviceable</small>}
+              </Col>
+            </Row>
+            <button type="submit" className="button-add-update mt-3" disabled={checkingService || !serviceability?.serviceable}>
+              {editing ? "Update Address" : "Add Address"}
+            </button>
+          </form>
+        </Modal.Body>
+      </Modal>
+    </div>
   );
 };
+
 export default LabtestAddressPage;
