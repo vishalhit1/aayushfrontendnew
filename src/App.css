@@ -6990,3 +6990,16 @@ button.form-submit-new {
     padding-right: 5px;
     padding-left: 5px;
 }
+
+.payment-card.shadow-lg {
+    padding-top: 15px;
+    padding-left: 15px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+}  
+
+button.btn.w-100.mt-4.fw-semibold.btn-success {
+    background: #2d8086;
+}
