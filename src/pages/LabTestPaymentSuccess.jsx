@@ -112,7 +112,7 @@ const LabTestPaymentSuccess = () => {
     <>
       {/* ===== PAYMENT STATUS SECTION ===== */}
       <div
-        className="d-flex align-items-center justify-content-center min-vh-100 px-3"
+        className="d-flex align-items-center justify-content-center px-3"
         style={{
           background:
             "radial-gradient(circle at top, #eef6ff 0%, #f9fafb 60%)",
@@ -208,7 +208,7 @@ const LabTestPaymentSuccess = () => {
       </div>
 
       {/* ===== RECOMMENDATIONS ===== */}
-      <section className="py-5" style={{ background: "#F2FAF9" }}>
+      <section className="" style={{ background: "#F2FAF9" }}>
         <BookTogether />
       </section>
 

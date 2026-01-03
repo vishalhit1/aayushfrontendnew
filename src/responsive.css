@@ -2006,4 +2006,16 @@
         right: 0px;
         border-top: #46AAA0 1px solid;
     }
+
+    .payment-card.shadow-lg {
+        padding-top: 15px;
+        padding-left: 15px;
+        margin-top: 40px;
+        padding-right: 15px;
+        padding-bottom: 25px;
+    }  
+    
+    button.btn.w-100.mt-4.fw-semibold.btn-success {
+        background: #2d8086;
+    }
 }
