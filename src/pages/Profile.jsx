@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useContext } from "react";
 import { Row, Col, Spinner } from "react-bootstrap";
 import API from "../api/axios.js";
@@ -10,6 +9,7 @@ import ConsultationTab from "./ConsultationTab.jsx";
 import MembersTab from "./MembersTab.jsx";
 import { Link } from "react-router-dom";
 import LabReportsTab from "./LabReportsTab.jsx";
+import ProfileAddressPage from "./ProfileAddressPage.jsx";
 const Profile = () => {
   // const { user, setUser } = useContext(AuthContext);
   const [user, setUser] = useState(null);
@@ -298,8 +298,8 @@ const Profile = () => {
     setMember({
       name: "",
       age: "",
-      gender:  "",
-      phone:  "",
+      gender: "",
+      phone: "",
       relation: "Self",
       medical_history: "",
       allergies: "",
@@ -363,7 +363,7 @@ const Profile = () => {
               </div>
 
               {/* Sidebar Navigation */}
-              {["profile", "members", "consultations", "lab-reports"].map(tab => (
+              {["profile", "Address", "members", "consultations", "lab-reports"].map(tab => (
                 <div
                   key={tab}
                   className={`active-sase ${activeTab === tab ? "active-abds" : ""}`}
@@ -454,6 +454,10 @@ const Profile = () => {
                 </div>
               </section>
             )}
+
+            {activeTab === "Address" && (
+              <ProfileAddressPage />
+              )}
 
             {activeTab === "consultations" && (
               <section>
@@ -586,11 +590,6 @@ const Profile = () => {
                 )}
               </section>
             )} */}
-
-
-
-
-
 
           </div>
         </div>

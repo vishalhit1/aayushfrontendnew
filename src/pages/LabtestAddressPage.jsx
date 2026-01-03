@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useCallback } from "react";
+import React, { useState, useEffect, useContext, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Modal, Col, Row } from "react-bootstrap";
 import { toast } from "react-toastify";
@@ -26,6 +26,7 @@ const LabtestAddressPage = () => {
     state: "",
   });
   const [editing, setEditing] = useState(null);
+  const [initialloading, setInitialLoading] = useState(false);
   const [loading, setLoading] = useState(false);
 
   // Dropdown states
@@ -98,8 +99,36 @@ const LabtestAddressPage = () => {
     }
   }, [statelist, addresses]);
 
+  const toastShown = useRef(false);
+  useEffect(() => {
+    if (
+      serviceability !== null &&
+      serviceability?.serviceable === false &&
+      !toastShown.current
+    ) {
+      toast.error("Service is not available for this address");
+      toastShown.current = true;
+    }
+  
+    if (serviceability?.serviceable) {
+      toastShown.current = false; // reset when serviceable
+    }
+  }, [serviceability]);
+
+  useEffect(() => {
+    // Reset serviceability when selectedAddress changes
+    setServiceability(null);
+    setCheckingService(false);
+  
+    if (selectedAddress) {
+      checkServiceability(selectedAddress.pincode);
+    }
+  }, [selectedAddress]);
+  
+
   const fetchAddresses = async () => {
     try {
+      setInitialLoading(true)
       const res = await API.get("/api/users/addresses");
       const fetchedAddresses = res.data.addresses || [];
       setAddresses(fetchedAddresses);
@@ -114,6 +143,8 @@ const LabtestAddressPage = () => {
     } catch (err) {
       console.error(err);
       toast.error("Failed to load addresses");
+    } finally {
+      setInitialLoading(false)
     }
   };
 
@@ -315,6 +346,10 @@ const LabtestAddressPage = () => {
     return <div className="fullpage-loader"><div className="spinner"></div></div>;
   }
 
+  if (initialloading) {
+    return <div className="fullpage-loader"><div className="spinner"></div></div>;
+  }
+
   return (
     <div className="container my-4">
       <button className="add-patie" onClick={handleAddModal}>+ Add new address</button>
@@ -368,6 +403,7 @@ const LabtestAddressPage = () => {
                         <small className="text-success fw-bold">✅ Service Available</small>
                       ) : serviceability !== null ? (
                         <small className="text-danger fw-bold">❌ Not Serviceable</small>
+                     
                       ) : (
                         null
                       )}
@@ -384,7 +420,8 @@ const LabtestAddressPage = () => {
               <button
                 className="continue-abcd"
                 disabled={!selectedAddress || checkingService || (serviceability !== null && !serviceability.serviceable)}
-                onClick={async () => {
+                onClick={async (e) => {
+                  e.stopPropagation();
                   console.log("🚀 Continue clicked");
                   if (!selectedAddress) return toast.error("Select an address");
 
@@ -401,13 +438,16 @@ const LabtestAddressPage = () => {
                   }
 
                   // ✅ Now get fresh cityObj
-                  const cityObj = citylist.find(c => c.name === selectedAddress.city);
-                  console.log("🔍 Final cityObj:", cityObj?.name);
+                  console.log("citylist",citylist.find(c => c.name))
+                  console.log("selectedAddress",selectedAddress)
 
-                  if (!stateObj?._id || !cityObj?._id) {
-                    toast.error("Address missing city/state details. Please edit address.");
-                    return;
-                  }
+                  const cityObj = citylist.find(c => c.name === selectedAddress.city);
+                  console.log("🔍 Final cityObj:", cityObj);
+
+                  // if (!stateObj?._id || !cityObj?._id) {
+                  //   toast.error("Address Not Matching city/state details for serviceable. Please edit address.");
+                  //   return;
+                  // }
 
                   // ✅ FINAL service check
                   const isServiceable = await checkServiceability(

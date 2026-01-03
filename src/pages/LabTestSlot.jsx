@@ -1,68 +1,55 @@
-import React, { useContext, useState, useEffect, useRef, useCallback } from "react";
+import React, {
+  useContext,
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+} from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { CartContext } from "../context/CartContext";
+
 const LabTestSlot = () => {
-  const { totalAmount, selectedLabSlot, setSelectedLabSlot } = useContext(CartContext);
+  const { totalAmount, selectedLabSlot, setSelectedLabSlot } =
+    useContext(CartContext);
+
   const location = useLocation();
   const navigate = useNavigate();
   const { selectedTests = [] } = location.state || {};
-  const [currentSlot, setCurrentSlot] = useState(selectedLabSlot?.slot || "");
-  const [selectedDate, setSelectedDate] = useState(
-    selectedLabSlot?.date ? new Date(selectedLabSlot.date) : new Date()
+
+  const [currentSlot, setCurrentSlot] = useState(
+    selectedLabSlot?.slot || ""
   );
+
+  const [selectedDate, setSelectedDate] = useState(null);
   const [dates, setDates] = useState([]);
   const [slots, setSlots] = useState([]);
+
   const slotContainerRef = useRef(null);
+
   /* ===================== MOBILE ===================== */
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   /* ===================== INIT ===================== */
   useEffect(() => {
     generateNext7Days();
     generateMorningSlots();
   }, []);
+
+  /* ===================== SCROLL ===================== */
   useEffect(() => {
     if (!slotContainerRef.current) return;
-    // Scroll to first available slot
-    const firstAvailable = slotContainerRef.current.querySelector(".slot-button:not(:disabled)");
-    firstAvailable?.scrollIntoView({ behavior: "smooth", block: "center" });
+    slotContainerRef.current
+      .querySelector(".slot-button")
+      ?.scrollIntoView({ behavior: "smooth", block: "center" });
   }, [slots, selectedDate]);
-  /* ===================== HELPER ===================== */
-  // ✅ CRITICAL: Check if ALL slots are disabled for current date
-  const allSlotsDisabled = useCallback(() => {
-    return slots.every(slot => isSlotDisabled(slot));
-  }, [slots, selectedDate]);
-  // ✅ Check if slot selection is valid
-  const isSlotSelectionValid = () => {
-    return !!currentSlot && !allSlotsDisabled();
-  };
-  /* ===================== DATE LOGIC ===================== */
-  const generateNext7Days = () => {
-    const today = new Date();
-    const arr = [];
-    for (let i = 0; i < 7; i++) {
-      const d = new Date(today);
-      d.setDate(today.getDate() + i);
-      arr.push(d);
-    }
-    setDates(arr);
-    // If after 7 PM → auto move to next day
-    if (today.getHours() >= 19) {
-      setSelectedDate(arr[1]);
-    } else {
-      setSelectedDate(arr[0]);
-    }
-  };
-  const isToday = (date) => new Date().toDateString() === date.toDateString();
-  const isDateDisabled = (date) => {
-    const now = new Date();
-    return now.getHours() >= 19 && isToday(date);
-  };
+
   /* ===================== SLOT LOGIC ===================== */
   const generateMorningSlots = () => {
     const ranges = [];
@@ -76,26 +63,37 @@ const LabTestSlot = () => {
     }
     setSlots(ranges);
   };
-  const isSlotDisabled = (slot) => {
-    if (!isToday(selectedDate)) return false;
-    const [start] = slot.split(" - ");
-    let [hour, ampm] = start.split(" ");
-    hour = parseInt(hour);
-    if (ampm === "PM" && hour !== 12) hour += 12;
-    if (ampm === "AM" && hour === 12) hour = 0;
-    return new Date().getHours() >= hour;
+
+  // ✅ FUTURE DATES ONLY → NEVER DISABLE SLOTS
+  const isSlotDisabled = () => false;
+
+  const allSlotsDisabled = useCallback(() => false, []);
+
+  /* ===================== DATE GENERATION ===================== */
+  const generateNext7Days = () => {
+    const baseDate = new Date();
+    baseDate.setDate(baseDate.getDate() + 1); // ✅ ALWAYS TOMORROW
+
+    const arr = [];
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(baseDate);
+      d.setDate(baseDate.getDate() + i);
+      arr.push(d);
+    }
+
+    setDates(arr);
+    setSelectedDate(arr[0]); // ✅ Jan 4 (correct)
   };
+
   /* ===================== ACTION ===================== */
   const handleContinue = () => {
     if (!currentSlot) {
       toast.error("Please select a slot");
       return;
     }
-    if (allSlotsDisabled()) {
-      toast.error("No slots available for today. Please select another date.");
-      return;
-    }
+
     setSelectedLabSlot({ slot: currentSlot, date: selectedDate });
+
     navigate("/lab/checkout", {
       state: {
         selectedTests,
@@ -105,12 +103,14 @@ const LabTestSlot = () => {
       },
     });
   };
+
   const formatTab = (date) =>
     date.toLocaleDateString("en-US", {
       weekday: "short",
       day: "numeric",
       month: "short",
     });
+
   /* ===================== UI ===================== */
   return (
     <>
@@ -129,126 +129,90 @@ const LabTestSlot = () => {
           </nav>
         </div>
       </div>
+
       <div className="container mt-5 mb-5">
-        <div className="selection-abcd">
-          <div className="select-medical-category">
-            <h3>Select Slot</h3>
-          </div>
-          <div className="slot-card">
-            {/* DATE SELECTOR */}
-            {isMobile ? (
-              <select
-                className="form-select mb-4"
-                value={selectedDate.toDateString()}
-                onChange={(e) => {
-                  const d = dates.find((x) => x.toDateString() === e.target.value);
-                  if (d && !isDateDisabled(d)) {
-                    setSelectedDate(d);
-                    setCurrentSlot("");
-                  }
+        <h3>Select Slot</h3>
+
+        {/* DATE SELECTOR */}
+        {isMobile ? (
+          <select
+            className="form-select mb-4"
+            value={selectedDate?.toDateString()}
+            onChange={(e) => {
+              const d = dates.find(
+                (x) => x.toDateString() === e.target.value
+              );
+              if (d) {
+                setSelectedDate(d);
+                setCurrentSlot("");
+              }
+            }}
+          >
+            {dates.map((d, i) => (
+              <option key={i} value={d.toDateString()}>
+                {formatTab(d)}
+              </option>
+            ))}
+          </select>
+        ) : (
+          <div className="calendar-tabs mb-4">
+            {dates.map((d, i) => (
+              <div
+                key={i}
+                className={`tab ${
+                  selectedDate?.toDateString() === d.toDateString()
+                    ? "active"
+                    : ""
+                }`}
+                onClick={() => {
+                  setSelectedDate(d);
+                  setCurrentSlot("");
                 }}
               >
-                {dates.map((d, i) => (
-                  <option
-                    key={i}
-                    value={d.toDateString()}
-                    disabled={isDateDisabled(d)}
-                  >
-                    {formatTab(d)}
-                  </option>
-                ))}
-              </select>
-            ) : (
-              <div className="calendar-tabs mb-4">
-                {dates.map((d, i) => (
-                  <div
-                    key={i}
-                    className={`tab ${selectedDate.toDateString() === d.toDateString() ? "active" : ""
-                      } ${isDateDisabled(d) ? "disabled bg-secondary text-white" : ""}`}
-                    onClick={() => {
-                      if (!isDateDisabled(d)) {
-                        setSelectedDate(d);
-                        setCurrentSlot("");
-                      }
-                    }}
-                  >
-                    {formatTab(d)}
-                  </div>
-                ))}
+                {formatTab(d)}
               </div>
-            )}
-            {/* SLOTS */}
-            <div className="slot-list scrollable" ref={slotContainerRef}>
-              {slots.map((slot, i) => (
-                <button
-                  key={i}
-                  className={`slot-button ${currentSlot === slot
-                    ? "selected"
-                    : isSlotDisabled(slot)
-                      ? "disabled bg-secondary"
-                      : "bg-light border hover-bg-primary"
-                    }`}
-                  disabled={isSlotDisabled(slot)}
-                  onClick={() => {
-                    if (!isSlotDisabled(slot)) {
-                      setCurrentSlot(slot);
-                      setSelectedLabSlot({ slot, date: selectedDate });
-                    }
-                  }}
-                >
-                  {slot}
-                  {currentSlot === slot && " ✓"}
-                </button>
-              ))}
-            </div>
-            {/* ✅ STATUS MESSAGE */}
-            {allSlotsDisabled() && (
-              <div className="alert alert-warning text-center mt-5">
-                <i className="fas fa-clock me-2"></i>
-                No slots available for today. Please select another date or try tomorrow.
-              </div>
-            )}
-            {currentSlot && !allSlotsDisabled() && (
-              <div className="alert alert-success text-center mt-5">
-                <i className="fas fa-check-circle me-2"></i>
-                Slot selected: <strong>{currentSlot}</strong> on {selectedDate.toDateString()}
-              </div>
-            )}
+            ))}
           </div>
-        </div>
-        {/* FOOTER */}
-        <div className="slot-end-new">
-          <div className="slot-summary-details">
-            <p><span>Date:</span> {selectedDate.toDateString()}</p>
-            <p><span>Slot:</span> {currentSlot || "Not selected"}</p>
-          </div>
-          {/* <div className="row text-center mb-4">
-            <div className="col-md-6">
-              <p><strong>Date:</strong></p>
-              <h5 className="text-primary">{selectedDate.toDateString()}</h5>
-            </div>
-            <div className="col-md-6">
-              <p><strong>Slot:</strong></p>
-              <h5 className={currentSlot ? "text-success" : "text-muted"}>
-                {currentSlot || "Not selected"}
-              </h5>
-            </div>
-          </div> */}
-          <div className="action-buttons mt-4">
-            <button className="go-backs" onClick={() => navigate('/labtest-address-detail')}>
-              <i className="fa fa-chevron-left"></i> Back
-            </button>
+        )}
+
+        {/* SLOTS */}
+        <div className="slot-list" ref={slotContainerRef}>
+          {slots.map((slot, i) => (
             <button
-              className="continue-abcd"
-              disabled={!currentSlot}
-              onClick={handleContinue}
+              key={i}
+              className={`slot-button ${
+                currentSlot === slot ? "selected" : ""
+              }`}
+              onClick={() => {
+                setCurrentSlot(slot);
+                setSelectedLabSlot({ slot, date: selectedDate });
+              }}
             >
-              Continue <i className="fa fa-chevron-right"></i>
+              {slot}
+              {currentSlot === slot && " ✓"}
             </button>
-          </div>
+          ))}
+        </div>
+
+        <div className="action-buttons mt-4">
+          <button
+            className="go-backs"
+            onClick={() => navigate("/labtest-address-detail")}
+          >
+            ← Back
+          </button>
+
+          <button
+            className="continue-abcd"
+            disabled={!currentSlot}
+            onClick={handleContinue}
+          >
+            Continue →
+          </button>
         </div>
       </div>
     </>
   );
 };
+
 export default LabTestSlot;
