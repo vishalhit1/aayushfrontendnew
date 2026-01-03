@@ -87,7 +87,7 @@ const LabTestPaymentSuccess = () => {
     if (paymentStatus === "paid") {
       navigate("/bookings");
     } else {
-      navigate("/");
+      navigate("/bookings");
     }
   };
 
